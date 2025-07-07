@@ -220,6 +220,7 @@ export default function CoursePage() {
               key={module.id}
               className="bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-6 hover:bg-slate-800/70 transition-all duration-300 hover:scale-105 hover:shadow-2xl"
             >
+              <Link href={`/course/week/${module.week}`} className="block">
               {/* Week Number */}
               <div className="text-purple-400 text-sm font-medium mb-2">
                 Week {module.week}
@@ -276,13 +277,14 @@ export default function CoursePage() {
                 )}
                 {module.status === 'completed' && (
                   <Link
-                    href={`/course/module/${module.id}`}
+                    href={`/course/week/${module.week}`}
                     className="px-4 py-2 bg-green-600 text-white text-sm font-medium rounded-lg hover:bg-green-700 transition-all duration-200"
                   >
                     Review
                   </Link>
                 )}
               </div>
+              </Link>
             </div>
           ))}
         </div>
