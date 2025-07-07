@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Flow: Course Modules to Week 2 Learning Page</title>
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            margin: 0;
+            padding: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .flow-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+        
+        .flow-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .flow-title h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        
+        .flow-title p {
+            color: #6b7280;
+            font-size: 1.1rem;
+        }
+        
+        .flow-diagram {
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+            margin-top: 40px;
+        }
+        
+        /* Starting Point */
+        .starting-point {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .page-card {
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            border: 3px solid #3b82f6;
+            border-radius: 16px;
+            padding: 24px;
+            min-width: 300px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.1);
+            position: relative;
+        }
+        
+        .page-card.destination {
+            background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+            border-color: #10b981;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.1);
+        }
+        
+        .page-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 8px;
+        }
+        
+        .page-url {
+            background: #f1f5f9;
+            color: #475569;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-family: 'Monaco', monospace;
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+        }
+        
+        .page-description {
+            color: #64748b;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        /* Path Container */
+        .paths-container {
+            display: flex;
+            justify-content: space-around;
+            gap: 80px;
+            margin: 40px 0;
+        }
+        
+        .path {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            position: relative;
+        }
+        
+        .path-label {
+            background: linear-gradient(135deg, #8b5cf6, #ec4899);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
+        }
+        
+        /* Module Cards */
+        .module-card {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 20px;
+            min-width: 280px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .module-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .module-header {
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        
+        .week-badge {
+            background: #ddd6fe;
+            color: #7c3aed;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .module-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin: 8px 0;
+        }
+        
+        .module-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        
+        .type-badge {
+            background: #dbeafe;
+            color: #1d4ed8;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .duration {
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+        
+        .status-badge {
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        
+        .status-current {
+            background: #fef3c7;
+            color: #d97706;
+        }
+        
+        .status-completed {
+            background: #d1fae5;
+            color: #059669;
+        }
+        
+        /* Action Buttons */
+        .action-button {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .action-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+        }
+        
+        .action-button.review {
+            background: linear-gradient(135deg, #10b981, #059669);
+        }
+        
+        .action-button.review:hover {
+            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+        }
+        
+        /* Arrows */
+        .arrow {
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-top: 20px solid #8b5cf6;
+            margin: 10px 0;
+        }
+        
+        .arrow-horizontal {
+            width: 0;
+            height: 0;
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            border-left: 20px solid #8b5cf6;
+            margin: 0 20px;
+        }
+        
+        /* Destination */
+        .destination-section {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .paths-container {
+                flex-direction: column;
+                gap: 40px;
+            }
+            
+            .flow-container {
+                padding: 20px;
+            }
+            
+            .flow-title h1 {
+                font-size: 2rem;
+            }
+        }
+        
+        /* Component Labels */
+        .component-label {
+            background: #f3f4f6;
+            color: #374151;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin: 8px 0;
+            border-left: 4px solid #8b5cf6;
+        }
+        
+        .url-label {
+            background: #fef3c7;
+            color: #92400e;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-family: 'Monaco', monospace;
+            font-size: 0.8rem;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="flow-container">
+        <div class="flow-title">
+            <h1>User Flow Navigation</h1>
+            <p>Course Modules Page → Week 2 Learning Page</p>
+        </div>
+        
+        <div class="flow-diagram">
+            <!-- Starting Point -->
+            <div class="starting-point">
+                <div class="page-card">
+                    <div class="page-title">📚 Course Modules Page</div>
+                    <div class="page-url">/course</div>
+                    <div class="page-description">
+                        Main course overview showing all 11 modules with progress tracking and navigation options
+                    </div>
+                    <div class="component-label">Starting Point</div>
+                </div>
+            </div>
+            
+            <div class="arrow"></div>
+            
+            <!-- Two Paths -->
+            <div class="paths-container">
+                <!-- Path 1: Direct Navigation -->
+                <div class="path">
+                    <div class="path-label">Path 1: Direct Navigation</div>
+                    
+                    <div class="module-card">
+                        <div class="module-header">
+                            <div class="week-badge">Week 2</div>
+                        </div>
+                        <div class="module-title">Mind Wandering</div>
+                        <div class="module-meta">
+                            <div class="type-badge">💻 Online</div>
+                            <div class="duration">1.5 hours</div>
+                        </div>
+                        <div class="status-badge status-current">🔄 Current</div>
+                        <div class="component-label">Week 2 Card Click</div>
+                        <a href="#" class="action-button">Continue</a>
+                        <div class="url-label">Redirects to: /course/module/2</div>
+                    </div>
+                    
+                    <div class="arrow"></div>
+                    
+                    <div class="module-card">
+                        <div class="module-title">Module 2 Detail Page</div>
+                        <div class="page-url">/course/module/2</div>
+                        <div class="page-description">
+                            Detailed module view with sections: Anchoring, Context, Main Exercise, Sense Making, Take-Aways
+                        </div>
+                        <div class="component-label">Intermediate Step</div>
+                    </div>
+                </div>
+                
+                <!-- Path 2: Review Button -->
+                <div class="path">
+                    <div class="path-label">Path 2: Review Button</div>
+                    
+                    <div class="module-card">
+                        <div class="module-header">
+                            <div class="week-badge">Week 2</div>
+                        </div>
+                        <div class="module-title">Mind Wandering</div>
+                        <div class="module-meta">
+                            <div class="type-badge">💻 Online</div>
+                            <div class="duration">1.5 hours</div>
+                        </div>
+                        <div class="status-badge status-completed">✅ Completed</div>
+                        <div class="component-label">Review Button Click</div>
+                        <a href="#" class="action-button review">Review</a>
+                        <div class="url-label">Direct to: /course/week/2</div>
+                    </div>
+                    
+                    <div class="arrow"></div>
+                    
+                    <div class="module-card">
+                        <div class="module-title">Direct Navigation</div>
+                        <div class="page-description">
+                            Review button provides direct access to the Week 2 learning page, bypassing the module detail view
+                        </div>
+                        <div class="component-label">Direct Route</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Convergence Arrow -->
+            <div style="display: flex; justify-content: center; margin: 20px 0;">
+                <div class="arrow"></div>
+            </div>
+            
+            <!-- Destination -->
+            <div class="destination-section">
+                <div class="page-card destination">
+                    <div class="page-title">🧠 Week 2 Learning Page</div>
+                    <div class="page-url">/course/week/2</div>
+                    <div class="page-description">
+                        Comprehensive mind wandering tracking page with daily episode logging, session components, and weekly reflection prompts
+                    </div>
+                    <div class="component-label">Final Destination</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Flow Summary -->
+        <div style="margin-top: 60px; padding: 30px; background: #f8fafc; border-radius: 16px; border-left: 6px solid #8b5cf6;">
+            <h3 style="color: #1f2937; margin-bottom: 20px; font-size: 1.3rem;">🔍 Flow Summary</h3>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                <div>
+                    <h4 style="color: #3b82f6; margin-bottom: 12px;">Path 1: Direct Navigation</h4>
+                    <ul style="color: #6b7280; line-height: 1.6;">
+                        <li><strong>Trigger:</strong> Click on Week 2 module card</li>
+                        <li><strong>Route:</strong> /course → /course/module/2 → /course/week/2</li>
+                        <li><strong>User Intent:</strong> Continue current learning</li>
+                        <li><strong>Steps:</strong> 2 navigation steps</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: #10b981; margin-bottom: 12px;">Path 2: Review Button</h4>
+                    <ul style="color: #6b7280; line-height: 1.6;">
+                        <li><strong>Trigger:</strong> Click "Review" button</li>
+                        <li><strong>Route:</strong> /course → /course/week/2</li>
+                        <li><strong>User Intent:</strong> Review completed content</li>
+                        <li><strong>Steps:</strong> 1 navigation step</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Technical Details -->
+        <div style="margin-top: 30px; padding: 25px; background: #fefefe; border: 2px dashed #d1d5db; border-radius: 12px;">
+            <h3 style="color: #1f2937; margin-bottom: 16px; font-size: 1.2rem;">⚙️ Technical Implementation</h3>
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; font-size: 0.9rem;">
+                <div>
+                    <h4 style="color: #7c3aed; margin-bottom: 8px;">URL Routes</h4>
+                    <code style="background: #f3f4f6; padding: 4px 8px; border-radius: 4px; display: block; margin: 4px 0;">/course</code>
+                    <code style="background: #f3f4f6; padding: 4px 8px; border-radius: 4px; display: block; margin: 4px 0;">/course/module/2</code>
+                    <code style="background: #f3f4f6; padding: 4px 8px; border-radius: 4px; display: block; margin: 4px 0;">/course/week/2</code>
+                </div>
+                <div>
+                    <h4 style="color: #7c3aed; margin-bottom: 8px;">Components</h4>
+                    <div style="color: #6b7280;">
+                        <div>• Module Card</div>
+                        <div>• Continue Button</div>
+                        <div>• Review Button</div>
+                        <div>• Navigation Links</div>
+                    </div>
+                </div>
+                <div>
+                    <h4 style="color: #7c3aed; margin-bottom: 8px;">User Actions</h4>
+                    <div style="color: #6b7280;">
+                        <div>• Card Click</div>
+                        <div>• Button Click</div>
+                        <div>• Link Navigation</div>
+                        <div>• Progress Tracking</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
