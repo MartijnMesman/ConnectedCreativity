@@ -90,6 +90,11 @@ const moduleContent: ModuleContent = {
     mainExercise: {
       title: "Guided Mind Wandering Journey",
       content: "In this exercise, you'll practice intentional mind wandering - a structured approach to letting your thoughts flow freely while maintaining gentle awareness.",
+      audioGuide: {
+        title: "Mind Wandering Audio Guide",
+        url: "https://www.dropbox.com/scl/fi/4ne6puf9gr3gdqthvg7sy/mindwondering-online_compressed.mp3?rlkey=nn_",
+        duration: "25 minutes"
+      },
       instructions: [
         "Find a comfortable, quiet space where you won't be disturbed",
         "Set a timer for 20 minutes",
@@ -220,6 +225,35 @@ export default function ModulePage() {
         return (
           <div className="space-y-6">
             <p className="text-gray-700 leading-relaxed">{section.content}</p>
+            
+            {/* Audio Guide */}
+            {section.audioGuide && (
+              <div className="bg-indigo-50 rounded-xl p-6">
+                <h4 className="font-semibold text-indigo-800 mb-3">🎧 Audio Guide</h4>
+                <div className="flex items-center justify-between bg-white rounded-lg p-4">
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 bg-indigo-600 rounded-full flex items-center justify-center">
+                      <span className="text-white">🎵</span>
+                    </div>
+                    <div>
+                      <h5 className="font-medium text-indigo-800">{section.audioGuide.title}</h5>
+                      <p className="text-sm text-indigo-600">{section.audioGuide.duration}</p>
+                    </div>
+                  </div>
+                  <a 
+                    href={section.audioGuide.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors font-medium"
+                  >
+                    🎧 Listen Now
+                  </a>
+                </div>
+                <p className="text-sm text-indigo-700 mt-3">
+                  💡 <strong>Tip:</strong> Listen to this guided audio while doing the mind wandering exercise for the best experience.
+                </p>
+              </div>
+            )}
             
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-green-50 rounded-xl p-6">
