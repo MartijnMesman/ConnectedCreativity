@@ -220,7 +220,6 @@ export default function CoursePage() {
               key={module.id}
               className="bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-6 hover:bg-slate-800/70 transition-all duration-300 hover:scale-105 hover:shadow-2xl"
             >
-              <Link href={`/course/week/${module.week}`} className="block">
               {/* Week Number */}
               <div className="text-purple-400 text-sm font-medium mb-2">
                 Week {module.week}
@@ -284,7 +283,6 @@ export default function CoursePage() {
                   </Link>
                 )}
               </div>
-              </Link>
             </div>
           ))}
         </div>
