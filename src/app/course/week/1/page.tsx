@@ -235,12 +235,12 @@ export default function Week1Page() {
           
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-purple-500">
-              Week 1: Introduction + Curiosity
+              Introduction + Curiosity
             </span>
           </h1>
 
           <p className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed max-w-3xl mx-auto">
-            Welcome to Connected Creativity! This week we'll explore the foundations of creative thinking and develop curiosity as your compass for creative exploration.
+            Introduction to connected creativity and developing curiosity as a foundation for creative exploration
           </p>
 
           {/* Learning Objectives */}
