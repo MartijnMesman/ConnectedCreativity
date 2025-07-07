@@ -469,35 +469,48 @@ export default function Week2Page() {
                         : 'bg-gray-50 border-gray-200 text-gray-700 hover:bg-gray-100'
                     }`}
                   >
-                    <div className="flex items-center justify-between mb-2">
+                    <div className="flex items-start justify-between mb-3">
                       <div className="flex items-center space-x-3">
-                        <span className="text-xl">{getComponentIcon(component.type)}</span>
+                        <div className={`w-6 h-6 rounded border-2 flex items-center justify-center text-sm ${
+                          component.completed 
+                            ? 'bg-green-500 border-green-500 text-white' 
+                            : component.id === 1
+                            ? 'border-white text-white'
+                            : 'border-gray-400'
+                        }`}>
+                          {component.completed ? '✓' : component.id}
+                        </div>
                         <div>
-                          <h3 className="font-semibold text-sm">{component.title}</h3>
-                          <p className="text-xs opacity-75">{component.duration}</p>
+                          <h3 className={`font-semibold text-base ${
+                            component.id === 1 ? 'text-white' : ''
+                          }`}>{component.title}</h3>
                         </div>
                       </div>
-                      <button
-                        onClick={() => toggleComponentComplete(component.id)}
-                        className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all ${
-                          component.completed
-                            ? 'bg-green-500 border-green-500 text-white'
-                            : 'border-gray-400 hover:border-green-400'
-                        }`}
-                      >
-                        {component.completed && '✓'}
-                      </button>
+                      <span className={`text-sm font-medium ${
+                        component.id === 1 ? 'text-white' : 'text-gray-600'
+                      }`}>
+                        {component.duration}
+                      </span>
                     </div>
-                    <p className="text-xs leading-relaxed">{component.description}</p>
+                    <p className={`text-sm leading-relaxed mb-3 ${
+                      component.id === 1 ? 'text-gray-300' : 'text-gray-600'
+                    }`}>
+                      {component.description}
+                    </p>
                     
                     {/* Special content for Anchoring component */}
                     {component.id === 1 && component.content && (
-                      <div className="mt-3 pt-3 border-t border-gray-200">
-                        <p className="text-xs font-medium text-green-700 mb-2">✅ Your preparation checklist:</p>
-                        <ul className="space-y-1">
+                      <div className="mt-4">
+                        <div className="flex items-center space-x-2 mb-3">
+                          <div className="w-4 h-4 bg-green-500 rounded flex items-center justify-center">
+                            <span className="text-white text-xs">✓</span>
+                          </div>
+                          <p className="text-sm font-medium text-white">Your preparation checklist:</p>
+                        </div>
+                        <ul className="space-y-2 ml-6">
                           {component.content.checklist.map((item: string, index: number) => (
-                            <li key={index} className="text-xs text-green-600 flex items-start">
-                              <span className="w-1 h-1 bg-green-500 rounded-full mt-2 mr-2 flex-shrink-0"></span>
+                            <li key={index} className="text-sm text-gray-300 flex items-start">
+                              <span className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
                               {item}
                             </li>
                           ))}
