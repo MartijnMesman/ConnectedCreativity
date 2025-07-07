@@ -21,8 +21,8 @@ const modules: Module[] = [
     title: "Introduction + Curiosity",
     type: 'physical',
     status: 'completed',
-    description: "Welcome to Connected Creativity! Explore the foundations of creative thinking and discover your natural curiosity.",
-    duration: "3 hours",
+    description: "Introduction to connected creativity and developing curiosity as a foundation for creative exploration",
+    duration: "2 hours",
     learningOutcomes: [
       "Understand the course structure and objectives",
       "Identify your creative strengths and areas for growth",
@@ -35,8 +35,8 @@ const modules: Module[] = [
     title: "Mind Wandering",
     type: 'online',
     status: 'current',
-    description: "Discover the power of letting your mind wander and how it contributes to creative breakthroughs.",
-    duration: "2-3 hours",
+    description: "Exploring the connection between mind wandering and creative expression through guided exercises",
+    duration: "1.5 hours",
     learningOutcomes: [
       "Understand the neuroscience of mind wandering",
       "Practice guided mind wandering exercises",
@@ -49,8 +49,8 @@ const modules: Module[] = [
     title: "Collaborative Creativity",
     type: 'physical',
     status: 'locked',
-    description: "Explore how creativity emerges through collaboration and learn techniques for creative teamwork.",
-    duration: "3 hours",
+    description: "Working together in creative processes and understanding the power of collaborative creation",
+    duration: "2.5 hours",
     learningOutcomes: [
       "Experience collaborative creative processes",
       "Learn facilitation techniques for creative sessions",
@@ -63,8 +63,8 @@ const modules: Module[] = [
     title: "Intuition",
     type: 'online',
     status: 'locked',
-    description: "Develop your intuitive abilities and learn to trust your creative instincts.",
-    duration: "2-3 hours",
+    description: "Developing and trusting your creative intuition as a guide for artistic decisions",
+    duration: "3 hours",
     learningOutcomes: [
       "Distinguish between intuition and impulse",
       "Practice intuition-building exercises",
@@ -77,8 +77,8 @@ const modules: Module[] = [
     title: "Resilience",
     type: 'physical',
     status: 'locked',
-    description: "Build creative resilience and learn to navigate challenges in your creative journey.",
-    duration: "3 hours",
+    description: "Building creative resilience and learning to navigate challenges in the creative process",
+    duration: "2 hours",
     learningOutcomes: [
       "Understand the role of resilience in creativity",
       "Develop personal resilience strategies",
@@ -91,8 +91,8 @@ const modules: Module[] = [
     title: "Inner Critic",
     type: 'online',
     status: 'locked',
-    description: "Recognize and work with your inner critic to unlock your creative potential.",
-    duration: "2-3 hours",
+    description: "Understanding and working with your inner critic to enhance rather than hinder creativity",
+    duration: "2.5 hours",
     learningOutcomes: [
       "Identify your inner critic patterns",
       "Learn techniques to manage self-doubt",
@@ -105,8 +105,8 @@ const modules: Module[] = [
     title: "Entrepreneurship",
     type: 'online',
     status: 'locked',
-    description: "Explore the intersection of creativity and entrepreneurship.",
-    duration: "2-3 hours",
+    description: "Exploring the entrepreneurial mindset and turning creative ideas into viable projects",
+    duration: "3.5 hours",
     learningOutcomes: [
       "Understand creative entrepreneurship",
       "Develop business thinking for creative projects",
@@ -119,8 +119,8 @@ const modules: Module[] = [
     title: "Creative Courage",
     type: 'physical',
     status: 'locked',
-    description: "Develop the courage to share your creative work and take creative risks.",
-    duration: "3 hours",
+    description: "Developing the courage to take creative risks and express your authentic voice",
+    duration: "2 hours",
     learningOutcomes: [
       "Understand the role of courage in creativity",
       "Practice vulnerability in creative expression",
@@ -133,8 +133,8 @@ const modules: Module[] = [
     title: "Creativity and Technology",
     type: 'online',
     status: 'locked',
-    description: "Explore how technology can enhance and support your creative practice.",
-    duration: "2-3 hours",
+    description: "Exploring how technology can enhance and support creative processes and expression",
+    duration: "2.5 hours",
     learningOutcomes: [
       "Understand the relationship between creativity and technology",
       "Explore digital creative tools",
@@ -147,8 +147,8 @@ const modules: Module[] = [
     title: "Creative Flow",
     type: 'online',
     status: 'locked',
-    description: "Learn to access and maintain states of creative flow.",
-    duration: "2-3 hours",
+    description: "Understanding and cultivating flow states for optimal creative performance",
+    duration: "4 hours",
     learningOutcomes: [
       "Understand the psychology of flow states",
       "Identify your personal flow triggers",
@@ -161,8 +161,8 @@ const modules: Module[] = [
     title: "Your Creative Vision",
     type: 'physical',
     status: 'locked',
-    description: "Synthesize your learning and create a personal creative vision for the future.",
-    duration: "3 hours",
+    description: "Synthesizing your learning journey and developing your personal creative vision for the future",
+    duration: "1.5 hours",
     learningOutcomes: [
       "Reflect on your creative journey",
       "Articulate your personal creative vision",
@@ -172,207 +172,152 @@ const modules: Module[] = [
 ]
 
 export default function CoursePage() {
-  const [selectedModule, setSelectedModule] = useState<Module | null>(modules[1]) // Default to current module
-
-  const getStatusIcon = (status: string) => {
-    switch (status) {
-      case 'completed':
-        return '✅'
-      case 'current':
-        return '🔄'
-      case 'locked':
-        return '🔒'
-      default:
-        return '⭕'
-    }
-  }
-
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case 'completed':
-        return 'bg-green-100 border-green-300 text-green-800'
-      case 'current':
-        return 'bg-blue-100 border-blue-300 text-blue-800'
-      case 'locked':
-        return 'bg-gray-100 border-gray-300 text-gray-600'
-      default:
-        return 'bg-gray-100 border-gray-300 text-gray-600'
-    }
-  }
-
-  const getTypeIcon = (type: string) => {
-    return type === 'physical' ? '🏫' : '💻'
-  }
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-100">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
       {/* Header */}
-      <header className="bg-white shadow-sm border-b border-purple-100">
-        <div className="container mx-auto px-4 py-4">
+      <header className="relative z-10">
+        <div className="container mx-auto px-6 py-6">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4">
-              <Link href="/" className="w-12 h-12 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-xl">CC</span>
-              </Link>
-              <div>
-                <h1 className="text-2xl font-bold text-gray-800">Course Modules</h1>
-                <p className="text-sm text-purple-600">11-Week Journey</p>
-              </div>
+            <div className="flex items-center space-x-3">
+              <h1 className="text-xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
+                Connected Creativity
+              </h1>
             </div>
-            <nav className="hidden md:flex space-x-6">
-              <Link href="/" className="text-gray-600 hover:text-purple-600">Home</Link>
-              <Link href="/course" className="text-purple-600 hover:text-purple-800 font-medium">Course</Link>
-              <Link href="/progress" className="text-gray-600 hover:text-purple-600">Progress</Link>
-              <Link href="/resources" className="text-gray-600 hover:text-purple-600">Resources</Link>
+            <nav className="hidden md:flex space-x-8">
+              <Link href="/" className="text-gray-300 hover:text-white font-medium transition-colors duration-200">
+                Home
+              </Link>
+              <Link href="/course" className="text-white font-medium">
+                Modules
+              </Link>
             </nav>
           </div>
         </div>
       </header>
 
-      <div className="container mx-auto px-4 py-8">
-        <div className="grid lg:grid-cols-3 gap-8">
-          {/* Module List */}
-          <div className="lg:col-span-1">
-            <div className="bg-white rounded-2xl shadow-lg p-6 sticky top-8">
-              <h2 className="text-xl font-bold text-gray-800 mb-6">Course Timeline</h2>
-              <div className="space-y-3">
-                {modules.map((module) => (
-                  <div
-                    key={module.id}
-                    onClick={() => setSelectedModule(module)}
-                    className={`p-4 rounded-xl border-2 cursor-pointer transition-all duration-200 hover:shadow-md ${
-                      selectedModule?.id === module.id
-                        ? 'border-purple-400 bg-purple-50'
-                        : getStatusColor(module.status)
-                    }`}
+      {/* Main Content */}
+      <main className="container mx-auto px-6 py-16">
+        <div className="text-center max-w-4xl mx-auto mb-16">
+          {/* Hero Title */}
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-purple-500">
+              Course Modules
+            </span>
+          </h1>
+
+          {/* Subtitle */}
+          <p className="text-xl md:text-2xl text-gray-300 mb-16 leading-relaxed max-w-3xl mx-auto">
+            Discover your creative journey through our carefully curated modules,
+            <br />
+            each designed to develop your skills step by step.
+          </p>
+        </div>
+
+        {/* Module Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          {modules.map((module) => (
+            <div
+              key={module.id}
+              className="bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-6 hover:bg-slate-800/70 transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+            >
+              {/* Week Number */}
+              <div className="text-purple-400 text-sm font-medium mb-2">
+                Week {module.week}
+              </div>
+
+              {/* Module Title */}
+              <h3 className="text-xl font-semibold text-white mb-3 leading-tight">
+                {module.title}
+              </h3>
+
+              {/* Description */}
+              <p className="text-gray-400 text-sm leading-relaxed mb-4">
+                {module.description}
+              </p>
+
+              {/* Module Type and Duration */}
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center space-x-2">
+                  <span className={`px-3 py-1 rounded-full text-xs font-medium ${
+                    module.type === 'physical' 
+                      ? 'bg-green-500/20 text-green-400 border border-green-500/30' 
+                      : 'bg-blue-500/20 text-blue-400 border border-blue-500/30'
+                  }`}>
+                    {module.type === 'physical' ? '🏫 Physical' : '💻 Online'}
+                  </span>
+                </div>
+                <span className="text-gray-400 text-sm">
+                  {module.duration}
+                </span>
+              </div>
+
+              {/* Status Indicator */}
+              <div className="flex items-center justify-between">
+                <div className={`px-3 py-1 rounded-full text-xs font-medium ${
+                  module.status === 'completed' 
+                    ? 'bg-green-500/20 text-green-400' 
+                    : module.status === 'current'
+                    ? 'bg-yellow-500/20 text-yellow-400'
+                    : 'bg-gray-500/20 text-gray-400'
+                }`}>
+                  {module.status === 'completed' && '✅ Completed'}
+                  {module.status === 'current' && '🔄 Current'}
+                  {module.status === 'locked' && '🔒 Locked'}
+                </div>
+
+                {/* Action Button */}
+                {module.status === 'current' && (
+                  <Link
+                    href={`/course/module/${module.id}`}
+                    className="px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-sm font-medium rounded-lg hover:from-purple-600 hover:to-pink-600 transition-all duration-200"
                   >
-                    <div className="flex items-center justify-between mb-2">
-                      <div className="flex items-center space-x-2">
-                        <span className="text-lg">{getStatusIcon(module.status)}</span>
-                        <span className="text-lg">{getTypeIcon(module.type)}</span>
-                      </div>
-                      <span className="text-xs font-medium bg-white px-2 py-1 rounded-full">
-                        Week {module.week}
-                      </span>
-                    </div>
-                    <h3 className="font-semibold text-sm mb-1">{module.title}</h3>
-                    <p className="text-xs opacity-75 capitalize">{module.type} Session</p>
-                  </div>
-                ))}
+                    Continue
+                  </Link>
+                )}
+                {module.status === 'completed' && (
+                  <Link
+                    href={`/course/module/${module.id}`}
+                    className="px-4 py-2 bg-green-600 text-white text-sm font-medium rounded-lg hover:bg-green-700 transition-all duration-200"
+                  >
+                    Review
+                  </Link>
+                )}
               </div>
             </div>
-          </div>
+          ))}
+        </div>
 
-          {/* Module Details */}
-          <div className="lg:col-span-2">
-            {selectedModule ? (
-              <div className="bg-white rounded-2xl shadow-lg p-8">
-                <div className="flex items-center justify-between mb-6">
-                  <div className="flex items-center space-x-3">
-                    <span className="text-2xl">{getStatusIcon(selectedModule.status)}</span>
-                    <span className="text-2xl">{getTypeIcon(selectedModule.type)}</span>
-                    <div>
-                      <h1 className="text-3xl font-bold text-gray-800">{selectedModule.title}</h1>
-                      <p className="text-purple-600 font-medium">Week {selectedModule.week} • {selectedModule.type === 'physical' ? 'In-Person' : 'Online Self-Study'}</p>
-                    </div>
-                  </div>
-                  <div className={`px-4 py-2 rounded-full text-sm font-medium ${getStatusColor(selectedModule.status)}`}>
-                    {selectedModule.status === 'completed' ? 'Completed' : 
-                     selectedModule.status === 'current' ? 'Current' : 'Locked'}
-                  </div>
-                </div>
-
-                <div className="mb-8">
-                  <h2 className="text-xl font-semibold text-gray-800 mb-3">Description</h2>
-                  <p className="text-gray-600 leading-relaxed">{selectedModule.description}</p>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-8 mb-8">
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-800 mb-3">Duration</h3>
-                    <p className="text-gray-600">{selectedModule.duration}</p>
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-800 mb-3">Learning Outcomes</h3>
-                    <ul className="space-y-2">
-                      {selectedModule.learningOutcomes.map((outcome, index) => (
-                        <li key={index} className="flex items-start text-gray-600">
-                          <span className="w-2 h-2 bg-purple-600 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                          {outcome}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-
-                {/* Action Buttons */}
-                <div className="flex space-x-4">
-                  {selectedModule.status === 'current' && (
-                    <Link
-                      href={`/course/module/${selectedModule.id}`}
-                      className="px-6 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-xl font-semibold hover:from-purple-700 hover:to-indigo-700 transition-all duration-200 shadow-lg hover:shadow-xl"
-                    >
-                      Start Module
-                    </Link>
-                  )}
-                  {selectedModule.status === 'completed' && (
-                    <Link
-                      href={`/course/module/${selectedModule.id}`}
-                      className="px-6 py-3 bg-green-600 text-white rounded-xl font-semibold hover:bg-green-700 transition-all duration-200"
-                    >
-                      Review Module
-                    </Link>
-                  )}
-                  {selectedModule.status === 'locked' && (
-                    <button
-                      disabled
-                      className="px-6 py-3 bg-gray-300 text-gray-500 rounded-xl font-semibold cursor-not-allowed"
-                    >
-                      Module Locked
-                    </button>
-                  )}
-                  <button className="px-6 py-3 bg-white text-purple-600 rounded-xl font-semibold border-2 border-purple-200 hover:border-purple-400 transition-all duration-200">
-                    Download Resources
-                  </button>
-                </div>
-
-                {/* Module Structure Info */}
-                <div className="mt-8 p-6 bg-gradient-to-r from-purple-50 to-indigo-50 rounded-xl">
-                  <h3 className="text-lg font-semibold text-purple-800 mb-3">Module Structure</h3>
-                  <p className="text-purple-700 mb-4">Each session follows our proven 5-component structure:</p>
-                  <div className="grid grid-cols-5 gap-4 text-center">
-                    <div className="bg-white p-3 rounded-lg">
-                      <div className="text-2xl mb-2">⚓</div>
-                      <div className="text-xs font-medium text-purple-800">Anchoring</div>
-                    </div>
-                    <div className="bg-white p-3 rounded-lg">
-                      <div className="text-2xl mb-2">🌍</div>
-                      <div className="text-xs font-medium text-purple-800">Context</div>
-                    </div>
-                    <div className="bg-white p-3 rounded-lg">
-                      <div className="text-2xl mb-2">🎯</div>
-                      <div className="text-xs font-medium text-purple-800">Main Exercise</div>
-                    </div>
-                    <div className="bg-white p-3 rounded-lg">
-                      <div className="text-2xl mb-2">🤔</div>
-                      <div className="text-xs font-medium text-purple-800">Sense Making</div>
-                    </div>
-                    <div className="bg-white p-3 rounded-lg">
-                      <div className="text-2xl mb-2">💡</div>
-                      <div className="text-xs font-medium text-purple-800">Take-Aways</div>
-                    </div>
-                  </div>
-                </div>
+        {/* Course Progress */}
+        <div className="mt-16 max-w-2xl mx-auto">
+          <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-8 text-center">
+            <h3 className="text-2xl font-semibold text-white mb-4">Your Progress</h3>
+            <div className="flex items-center justify-center space-x-8 mb-6">
+              <div>
+                <div className="text-3xl font-bold text-purple-400">1</div>
+                <div className="text-gray-400 text-sm">Completed</div>
               </div>
-            ) : (
-              <div className="bg-white rounded-2xl shadow-lg p-8 text-center">
-                <div className="text-6xl mb-4">📚</div>
-                <h2 className="text-2xl font-bold text-gray-800 mb-4">Select a Module</h2>
-                <p className="text-gray-600">Choose a module from the timeline to view its details and content.</p>
+              <div>
+                <div className="text-3xl font-bold text-yellow-400">1</div>
+                <div className="text-gray-400 text-sm">In Progress</div>
               </div>
-            )}
+              <div>
+                <div className="text-3xl font-bold text-gray-400">9</div>
+                <div className="text-gray-400 text-sm">Remaining</div>
+              </div>
+            </div>
+            <div className="w-full bg-slate-700 rounded-full h-3 mb-4">
+              <div className="bg-gradient-to-r from-purple-500 to-pink-500 h-3 rounded-full transition-all duration-500" style={{ width: '18%' }}></div>
+            </div>
+            <p className="text-gray-400 text-sm">18% Complete</p>
           </div>
         </div>
+      </main>
+
+      {/* Background Elements */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-3/4 left-1/2 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl"></div>
       </div>
     </div>
   )
