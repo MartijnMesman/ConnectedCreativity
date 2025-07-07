@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
+import AudioPlayer from '@/components/AudioPlayer'
 
 interface ModuleContent {
   id: number
@@ -174,21 +175,12 @@ export default function ModulePage() {
           <div className="space-y-6">
             <p className="text-gray-700 leading-relaxed">{section.content}</p>
             {section.media && (
-              <div className="bg-purple-50 rounded-xl p-6">
-                <h4 className="font-semibold text-purple-800 mb-3">Guided Audio</h4>
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center">
-                    <span className="text-white">🎵</span>
-                  </div>
-                  <div>
-                    <p className="font-medium">Anchoring Meditation</p>
-                    <p className="text-sm text-gray-600">{section.media.duration}</p>
-                  </div>
-                  <button className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700">
-                    Play Audio
-                  </button>
-                </div>
-              </div>
+              <AudioPlayer
+                src={section.media.url}
+                title="Anchoring Meditation"
+                duration={section.media.duration}
+                onComplete={() => markSectionComplete('anchoring')}
+              />
             )}
           </div>
         )
