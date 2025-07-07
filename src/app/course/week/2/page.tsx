@@ -457,16 +457,19 @@ export default function Week2Page() {
 
           {/* Session Components Sidebar */}
           <div className="lg:col-span-1">
-            <div className="bg-white rounded-2xl shadow-lg p-6 sticky top-8">
-              <h2 className="text-xl font-bold text-gray-800 mb-6">Session Components</h2>
+            <div className="bg-slate-800 rounded-2xl shadow-lg p-6 sticky top-8">
+              <h2 className="text-xl font-bold text-white mb-6">Session Components</h2>
+              <div className="text-gray-300 text-sm mb-6">0 of 5 completed</div>
               <div className="space-y-3">
                 {components.map((component) => (
                   <div
                     key={component.id}
                     className={`p-4 rounded-xl border-2 transition-all duration-200 ${
                       component.completed
-                        ? 'bg-green-50 border-green-300 text-green-800'
-                        : 'bg-gray-50 border-gray-200 text-gray-700 hover:bg-gray-100'
+                        ? 'bg-green-900/30 border-green-500 text-green-300'
+                        : component.id === 1
+                        ? 'bg-slate-700 border-slate-600 text-white'
+                        : 'bg-slate-700/50 border-slate-600 text-gray-300 hover:bg-slate-700'
                     }`}
                   >
                     <div className="flex items-start justify-between mb-3">
@@ -474,27 +477,19 @@ export default function Week2Page() {
                         <div className={`w-6 h-6 rounded border-2 flex items-center justify-center text-sm ${
                           component.completed 
                             ? 'bg-green-500 border-green-500 text-white' 
-                            : component.id === 1
-                            ? 'border-white text-white'
-                            : 'border-gray-400'
+                            : 'border-gray-400 text-gray-400'
                         }`}>
                           {component.completed ? '✓' : component.id}
                         </div>
                         <div>
-                          <h3 className={`font-semibold text-base ${
-                            component.id === 1 ? 'text-white' : ''
-                          }`}>{component.title}</h3>
+                          <h3 className="font-semibold text-base">{component.title}</h3>
                         </div>
                       </div>
-                      <span className={`text-sm font-medium ${
-                        component.id === 1 ? 'text-white' : 'text-gray-600'
-                      }`}>
+                      <span className="text-sm font-medium text-gray-400">
                         {component.duration}
                       </span>
                     </div>
-                    <p className={`text-sm leading-relaxed mb-3 ${
-                      component.id === 1 ? 'text-gray-300' : 'text-gray-600'
-                    }`}>
+                    <p className="text-sm leading-relaxed mb-3 text-gray-300">
                       {component.description}
                     </p>
                     
@@ -505,12 +500,12 @@ export default function Week2Page() {
                           <div className="w-4 h-4 bg-green-500 rounded flex items-center justify-center">
                             <span className="text-white text-xs">✓</span>
                           </div>
-                          <p className="text-sm font-medium text-white">Your preparation checklist:</p>
+                          <p className="text-sm font-medium text-green-400">Your preparation checklist:</p>
                         </div>
                         <ul className="space-y-2 ml-6">
                           {component.content.checklist.map((item: string, index: number) => (
                             <li key={index} className="text-sm text-gray-300 flex items-start">
-                              <span className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                              <span className="w-1.5 h-1.5 bg-green-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
                               {item}
                             </li>
                           ))}
@@ -524,10 +519,10 @@ export default function Week2Page() {
               {/* Progress Summary */}
               <div className="mt-6 pt-6 border-t border-gray-200">
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-sm font-medium text-gray-700">Progress</span>
-                  <span className="text-sm text-gray-600">{completedComponents}/{components.length}</span>
+                  <span className="text-sm font-medium text-gray-300">Progress</span>
+                  <span className="text-sm text-gray-400">{completedComponents}/{components.length}</span>
                 </div>
-                <div className="w-full bg-gray-200 rounded-full h-2">
+                <div className="w-full bg-slate-700 rounded-full h-2">
                   <div 
                     className="bg-gradient-to-r from-blue-500 to-indigo-500 h-2 rounded-full transition-all duration-500"
                     style={{ width: `${(completedComponents / components.length) * 100}%` }}
@@ -537,17 +532,17 @@ export default function Week2Page() {
 
               {/* Quick Stats */}
               <div className="mt-6 pt-6 border-t border-gray-200">
-                <h3 className="text-sm font-medium text-gray-700 mb-3">This Week</h3>
+                <h3 className="text-sm font-medium text-gray-300 mb-3">This Week</h3>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="text-center">
                     <div className="text-2xl font-bold text-blue-600">{episodes.length}</div>
-                    <div className="text-xs text-gray-600">Episodes</div>
+                    <div className="text-xs text-gray-400">Episodes</div>
                   </div>
                   <div className="text-center">
                     <div className="text-2xl font-bold text-purple-600">
                       {episodes.reduce((sum, ep) => sum + ep.duration, 0)}
                     </div>
-                    <div className="text-xs text-gray-600">Total Minutes</div>
+                    <div className="text-xs text-gray-400">Total Minutes</div>
                   </div>
                 </div>
               </div>
