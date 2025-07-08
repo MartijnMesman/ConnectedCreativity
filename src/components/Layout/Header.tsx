@@ -99,10 +99,3 @@ export default function Header() {
     </header>
   )
 }
-```
-          </nav>
-        </div>
-      </div>
-    </header>
-  )
-}
