@@ -173,7 +173,7 @@ export default function ResourcesPage() {
     <div className="min-h-screen bg-gradient-main">
       <Header />
 
-      <div className="container-section">
+      <div className="container mx-auto px-4 py-8">
         {/* Hero Section */}
         <div className="text-center max-w-4xl mx-auto mb-16">
           <h1 className="heading-xl mb-8">

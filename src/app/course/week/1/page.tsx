@@ -200,7 +200,7 @@ export default function Week1Page() {
       <Header />
 
       {/* Main Content */}
-      <main className="container-section">
+      <main className="container mx-auto px-4 py-8">
         {/* Hero Section */}
         <div className="text-center max-w-4xl mx-auto mb-16">
           <div className="flex items-center justify-center space-x-3 mb-4">
