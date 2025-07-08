@@ -3,6 +3,8 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
+import Header from '@/components/Layout/Header'
+import BackgroundElements from '@/components/Layout/BackgroundElements'
 
 interface ModuleContent {
   id: number
@@ -370,34 +372,35 @@ export default function ModulePage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-100">
-      {/* Header */}
-      <header className="bg-white shadow-sm border-b border-purple-100">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4">
-              <Link href="/course" className="w-12 h-12 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-xl">←</span>
-              </Link>
-              <div>
-                <h1 className="text-2xl font-bold text-gray-800">{moduleContent.title}</h1>
-                <p className="text-sm text-purple-600">Week {moduleContent.week} • Online Self-Study</p>
-              </div>
-            </div>
-            <div className="text-right">
-              <p className="text-sm text-gray-600">Progress</p>
-              <p className="text-lg font-bold text-purple-600">{completedSections.length}/5</p>
-            </div>
+    <div className="min-h-screen bg-gradient-main">
+      <Header />
+
+      <div className="container-section">
+        {/* Hero Section */}
+        <div className="text-center max-w-4xl mx-auto mb-16">
+          <div className="flex items-center justify-center space-x-3 mb-4">
+            <span className="badge-secondary">
+              💻 Online Self-Study
+            </span>
+            <span className="text-gray-300">•</span>
+            <span className="text-gray-300">Week {moduleContent.week}</span>
+          </div>
+          
+          <h1 className="heading-xl mb-8">
+            {moduleContent.title}
+          </h1>
+
+          <div className="flex items-center justify-center space-x-4 mb-8">
+            <span className="text-gray-300">Progress:</span>
+            <span className="text-2xl font-bold text-purple-400">{completedSections.length}/5</span>
           </div>
         </div>
-      </header>
 
-      <div className="container mx-auto px-4 py-8">
         <div className="grid lg:grid-cols-4 gap-8">
           {/* Section Navigation */}
           <div className="lg:col-span-1">
-            <div className="bg-white rounded-2xl shadow-lg p-6 sticky top-8">
-              <h2 className="text-lg font-bold text-gray-800 mb-6">Module Sections</h2>
+            <div className="card-primary sticky top-8">
+              <h2 className="heading-sm text-white mb-6">Module Sections</h2>
               <div className="space-y-3">
                 {sections.map((section) => {
                   const status = getSectionStatus(section.key)
@@ -405,18 +408,18 @@ export default function ModulePage() {
                     <button
                       key={section.key}
                       onClick={() => setCurrentSection(section.key)}
-                      className={`w-full p-4 rounded-xl text-left transition-all duration-200 ${
+                      className={`w-full p-4 rounded-xl text-left transition-all duration-200 border-2 ${
                         status === 'completed' 
-                          ? 'bg-green-100 border-2 border-green-300 text-green-800'
+                          ? 'bg-green-900/30 border-green-500 text-green-300'
                           : status === 'current'
-                          ? 'bg-purple-100 border-2 border-purple-400 text-purple-800'
-                          : 'bg-gray-100 border-2 border-gray-200 text-gray-600 hover:bg-gray-200'
+                          ? 'bg-slate-700 border-slate-600 text-white'
+                          : 'bg-slate-700/50 border-slate-600 text-gray-300 hover:bg-slate-700'
                       }`}
                     >
                       <div className="flex items-center space-x-3">
                         <span className="text-xl">{section.icon}</span>
                         <div>
-                          <h3 className="font-semibold text-sm">{section.title}</h3>
+                          <h3 className="font-semibold text-sm text-white">{section.title}</h3>
                           <p className="text-xs opacity-75">
                             {status === 'completed' ? 'Completed' : 
                              status === 'current' ? 'Current' : 'Upcoming'}
@@ -435,7 +438,7 @@ export default function ModulePage() {
 
           {/* Section Content */}
           <div className="lg:col-span-3">
-            <div className="bg-white rounded-2xl shadow-lg p-8">
+            <div className="card-secondary p-8">
               <div className="flex items-center space-x-3 mb-6">
                 <span className="text-3xl">
                   {sections.find(s => s.key === currentSection)?.icon}
@@ -457,7 +460,7 @@ export default function ModulePage() {
                     }
                   }}
                   disabled={sections.findIndex(s => s.key === currentSection) === 0}
-                  className="px-6 py-3 bg-gray-200 text-gray-700 rounded-xl font-semibold hover:bg-gray-300 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="btn-secondary btn-lg disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   ← Previous
                 </button>
@@ -470,7 +473,7 @@ export default function ModulePage() {
                       setCurrentSection(sections[currentIndex + 1].key)
                     }
                   }}
-                  className="px-6 py-3 bg-purple-600 text-white rounded-xl font-semibold hover:bg-purple-700 transition-all duration-200"
+                  className="btn-primary btn-lg"
                 >
                   {sections.findIndex(s => s.key === currentSection) === sections.length - 1 ? 'Complete Module' : 'Next →'}
                 </button>
@@ -479,6 +482,8 @@ export default function ModulePage() {
           </div>
         </div>
       </div>
+
+      <BackgroundElements />
     </div>
   )
 }

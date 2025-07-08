@@ -2,6 +2,8 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import Header from '@/components/Layout/Header'
+import BackgroundElements from '@/components/Layout/BackgroundElements'
 
 interface ReadingMaterial {
   id: number
@@ -194,58 +196,32 @@ export default function Week1Page() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-      {/* Header */}
-      <header className="relative z-10">
-        <div className="container mx-auto px-6 py-6">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4">
-              <Link href="/course" className="w-12 h-12 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-xl">←</span>
-              </Link>
-              <div className="flex items-center space-x-3">
-                <h1 className="text-xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
-                  Connected Creativity
-                </h1>
-              </div>
-            </div>
-            <nav className="hidden md:flex space-x-8">
-              <Link href="/" className="text-gray-300 hover:text-white font-medium transition-colors duration-200">
-                Home
-              </Link>
-              <Link href="/course" className="text-gray-300 hover:text-white font-medium transition-colors duration-200">
-                Modules
-              </Link>
-            </nav>
-          </div>
-        </div>
-      </header>
+    <div className="min-h-screen bg-gradient-main">
+      <Header />
 
       {/* Main Content */}
-      <main className="container mx-auto px-6 py-8">
+      <main className="container-section">
         {/* Hero Section */}
         <div className="text-center max-w-4xl mx-auto mb-16">
           <div className="flex items-center justify-center space-x-3 mb-4">
-            <span className="px-3 py-1 bg-green-500/20 text-green-400 border border-green-500/30 rounded-full text-sm font-medium">
+            <span className="badge-success">
               🏫 Physical Session
             </span>
             <span className="text-gray-400">•</span>
             <span className="text-gray-300">2 hours</span>
           </div>
           
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-purple-500">
-              Introduction + Curiosity
-            </span>
+          <h1 className="heading-xl mb-8">
+            Introduction + Curiosity
           </h1>
 
-          <p className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed max-w-3xl mx-auto">
+          <p className="body-lg mb-8 max-w-3xl mx-auto">
             Introduction to connected creativity and developing curiosity as a foundation for creative exploration
           </p>
 
           {/* Learning Objectives */}
-          <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-8 text-left">
-            <h2 className="text-2xl font-semibold text-white mb-6 text-center">🎯 Learning Objectives</h2>
+          <div className="card-primary text-left">
+            <h2 className="heading-md text-white mb-6 text-center">🎯 Learning Objectives</h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
@@ -278,23 +254,23 @@ export default function Week1Page() {
           <section>
             <div className="flex items-center space-x-3 mb-8">
               <span className="text-4xl">📚</span>
-              <h2 className="text-3xl font-bold text-white">Required Reading Materials</h2>
+              <h2 className="heading-lg text-white">Required Reading Materials</h2>
             </div>
             
             <div className="grid gap-6">
               {readingMaterials.map((reading) => (
                 <div
                   key={reading.id}
-                  className="bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-6 hover:bg-slate-800/70 transition-all duration-300"
+                  className="card-primary"
                 >
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex items-start space-x-4 flex-1">
                       <span className="text-3xl">{getTypeIcon(reading.type)}</span>
                       <div className="flex-1">
                         <div className="flex items-center space-x-3 mb-2">
-                          <h3 className="text-xl font-semibold text-white">{reading.title}</h3>
+                          <h3 className="heading-sm text-white">{reading.title}</h3>
                           {reading.required && (
-                            <span className="px-2 py-1 bg-red-500/20 text-red-400 border border-red-500/30 rounded-full text-xs font-medium">
+                            <span className="badge-error">
                               Required
                             </span>
                           )}
@@ -324,7 +300,7 @@ export default function Week1Page() {
                         href={reading.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                        className="btn-primary btn-sm"
                       >
                         Read Now
                       </a>
@@ -339,20 +315,20 @@ export default function Week1Page() {
           <section>
             <div className="flex items-center space-x-3 mb-8">
               <span className="text-4xl">🎯</span>
-              <h2 className="text-3xl font-bold text-white">Learning Activities</h2>
+              <h2 className="heading-lg text-white">Learning Activities</h2>
             </div>
             
             <div className="grid gap-8">
               {learningActivities.map((activity) => (
                 <div
                   key={activity.id}
-                  className="bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-8 hover:bg-slate-800/70 transition-all duration-300"
+                  className="card-primary"
                 >
                   <div className="flex items-start justify-between mb-6">
                     <div className="flex items-start space-x-4 flex-1">
                       <span className="text-4xl">{getTypeIcon(activity.type)}</span>
                       <div className="flex-1">
-                        <h3 className="text-2xl font-semibold text-white mb-2">{activity.title}</h3>
+                        <h3 className="heading-md text-white mb-2">{activity.title}</h3>
                         <div className="flex items-center space-x-4 mb-4">
                           <span className={`px-3 py-1 rounded-full text-xs font-medium border ${getTypeColor(activity.type)}`}>
                             {activity.type.toUpperCase()}
@@ -411,7 +387,7 @@ export default function Week1Page() {
                         <div className="mt-4 pt-4 border-t border-slate-600">
                           <a
                             href={activity.downloadUrl}
-                            className="inline-flex items-center px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+                            className="btn-primary btn-sm"
                           >
                             📄 Download Worksheet
                           </a>
@@ -428,20 +404,20 @@ export default function Week1Page() {
           <section>
             <div className="flex items-center space-x-3 mb-8">
               <span className="text-4xl">💭</span>
-              <h2 className="text-3xl font-bold text-white">Discussion & Reflection</h2>
+              <h2 className="heading-lg text-white">Discussion & Reflection</h2>
             </div>
             
             <div className="space-y-8">
               {discussionQuestions.map((question) => (
                 <div
                   key={question.id}
-                  className="bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-8"
+                  className="card-primary"
                 >
                   <div className="flex items-start space-x-4 mb-6">
                     <span className="text-3xl">{question.type === 'discussion' ? '🗣️' : '🤔'}</span>
                     <div className="flex-1">
                       <div className="flex items-center space-x-3 mb-3">
-                        <h3 className="text-xl font-semibold text-white">{question.question}</h3>
+                        <h3 className="heading-sm text-white">{question.question}</h3>
                         <span className={`px-3 py-1 rounded-full text-xs font-medium border ${
                           question.type === 'discussion' 
                             ? 'bg-blue-100 text-blue-800 border-blue-200' 
@@ -459,7 +435,7 @@ export default function Week1Page() {
                         <textarea
                           value={discussionResponses[question.id] || ''}
                           onChange={(e) => updateDiscussionResponse(question.id, e.target.value)}
-                          className="w-full p-4 bg-slate-700/50 border border-slate-600 rounded-lg text-white placeholder-gray-400 resize-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                          className="form-textarea-dark"
                           rows={4}
                           placeholder={question.type === 'discussion' 
                             ? "Share your thoughts and experiences..." 
@@ -481,11 +457,11 @@ export default function Week1Page() {
               ))}
 
               {/* Personal Learning Goals */}
-              <div className="bg-gradient-to-br from-purple-900/50 to-indigo-900/50 backdrop-blur-sm border border-purple-700/50 rounded-2xl p-8">
+              <div className="card-primary bg-gradient-to-br from-purple-900/50 to-indigo-900/50">
                 <div className="flex items-start space-x-4 mb-6">
                   <span className="text-3xl">🎯</span>
                   <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-white mb-3">Personal Learning Goals</h3>
+                    <h3 className="heading-sm text-white mb-3">Personal Learning Goals</h3>
                     <p className="text-gray-300 mb-6">
                       Take a moment to reflect on what you hope to achieve in this course. What specific skills, insights, or creative breakthroughs are you seeking?
                     </p>
@@ -495,7 +471,7 @@ export default function Week1Page() {
                         My learning goals for this course:
                       </label>
                       <textarea
-                        className="w-full p-4 bg-slate-700/50 border border-slate-600 rounded-lg text-white placeholder-gray-400 resize-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                        className="form-textarea-dark"
                         rows={5}
                         placeholder="What do you hope to learn, discover, or develop through this course? Be specific about your creative aspirations..."
                       />
@@ -512,12 +488,12 @@ export default function Week1Page() {
 
         {/* Footer Section */}
         <footer className="mt-20 max-w-6xl mx-auto">
-          <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-8">
+          <div className="card-primary">
             <div className="grid md:grid-cols-3 gap-8">
               
               {/* Next Steps */}
               <div>
-                <h3 className="text-xl font-semibold text-white mb-4 flex items-center">
+                <h3 className="heading-sm text-white mb-4 flex items-center">
                   <span className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center text-white text-sm mr-3">👉</span>
                   Next Steps
                 </h3>
@@ -539,7 +515,7 @@ export default function Week1Page() {
                 <div className="mt-6">
                   <Link
                     href="/course/module/2"
-                    className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                    className="btn-primary btn-sm"
                   >
                     Preview Week 2: Mind Wandering
                     <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -551,7 +527,7 @@ export default function Week1Page() {
 
               {/* Assignment Reminders */}
               <div>
-                <h3 className="text-xl font-semibold text-white mb-4 flex items-center">
+                <h3 className="heading-sm text-white mb-4 flex items-center">
                   <span className="w-6 h-6 bg-yellow-600 rounded-full flex items-center justify-center text-white text-sm mr-3">📅</span>
                   Assignment Reminders
                 </h3>
@@ -573,7 +549,7 @@ export default function Week1Page() {
 
               {/* Support & Contact */}
               <div>
-                <h3 className="text-xl font-semibold text-white mb-4 flex items-center">
+                <h3 className="heading-sm text-white mb-4 flex items-center">
                   <span className="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center text-white text-sm mr-3">💬</span>
                   Support & Contact
                 </h3>
@@ -600,14 +576,14 @@ export default function Week1Page() {
             {/* Progress Indicator */}
             <div className="mt-8 pt-8 border-t border-slate-700">
               <div className="flex items-center justify-between mb-4">
-                <h4 className="text-lg font-semibold text-white">Your Progress</h4>
+                <h4 className="heading-sm text-white">Your Progress</h4>
                 <span className="text-gray-400 text-sm">
                   {completedReadings.length + completedActivities.length} / {readingMaterials.length + learningActivities.length} completed
                 </span>
               </div>
-              <div className="w-full bg-slate-700 rounded-full h-3">
+              <div className="progress">
                 <div 
-                  className="bg-gradient-to-r from-purple-500 to-pink-500 h-3 rounded-full transition-all duration-500"
+                  className="progress-fill"
                   style={{ 
                     width: `${((completedReadings.length + completedActivities.length) / (readingMaterials.length + learningActivities.length)) * 100}%` 
                   }}
@@ -618,12 +594,7 @@ export default function Week1Page() {
         </footer>
       </main>
 
-      {/* Background Elements */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute top-3/4 left-1/2 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl"></div>
-      </div>
+      <BackgroundElements />
     </div>
   )
 }
