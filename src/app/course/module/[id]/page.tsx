@@ -133,7 +133,7 @@ const moduleContent: ModuleContent = {
           url: "/downloads/mind-wandering-guide.pdf"
         },
         {
-          title: "Creative Journaling Template",
+    description: 'Ground yourself in the present moment. Begin each session with conscious breathing and body awareness to create a stable foundation for the creative process.',
           type: "PDF",
           url: "/downloads/journaling-template.pdf"
         },
