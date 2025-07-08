@@ -621,11 +621,8 @@ export default function ModulePage() {
     }
   }
 }lassName="space-y-6">
-                
-        )
-    }
-  }
-}<h2 className="text-xl font-bold text-blue-400 mb-4">🎧 Audio Guide</h2>
+              <div className="space-y-6">
+                <h2 className="text-xl font-bold text-blue-400 mb-4">🎧 Audio Guide</h2>
                 
                 <div className="bg-slate-600/50 rounded-lg p-6">
                   <div className="flex items-center justify-between">
