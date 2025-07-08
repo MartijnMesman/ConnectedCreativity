@@ -580,41 +580,124 @@ export default function ModulePage() {
       
       case 'takeAways':
         return (
-          <div className="space-y-6">
-            <p className="text-gray-700 leading-relaxed">{section.content}</p>
-            
-            <div className="bg-yellow-50 rounded-xl p-6">
-              <h4 className="font-semibold text-yellow-800 mb-4">Downloadable Resources</h4>
-              <div className="grid gap-4">
-                {section.downloadableResources.map((resource, index) => (
-                  <div key={index} className="bg-white rounded-lg p-4 flex items-center justify-between">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-10 h-10 bg-yellow-600 rounded-lg flex items-center justify-center">
-                        <span className="text-white text-sm">📄</span>
-                      </div>
-                      <div>
-                        <h5 className="font-medium text-yellow-800">{resource.title}</h5>
-                        <p className="text-sm text-yellow-600">{resource.type}</p>
-                      </div>
-                    </div>
-                    <button className="px-4 py-2 bg-yellow-600 text-white rounded-lg hover:bg-yellow-700">
-                      Download
-                    </button>
-                  </div>
-                ))}
+          <div className="bg-slate-800 rounded-2xl p-8 text-white min-h-screen">
+            {/* Header Section */}
+            <div className="flex items-center justify-between mb-8">
+              <div className="flex items-center space-x-4">
+                <div className="w-8 h-8 bg-blue-500 rounded flex items-center justify-center text-white font-bold text-sm">
+                  5
+                </div>
+                <div>
+                  <h1 className="text-2xl font-bold text-white">Take-Aways</h1>
+                  <p className="text-blue-400 text-sm">5 min</p>
+                </div>
               </div>
             </div>
-            
-            <div className="text-center">
-              <button 
-                onClick={() => markSectionComplete('takeAways')}
-                className="px-8 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-xl font-semibold hover:from-purple-700 hover:to-indigo-700 transition-all duration-200 shadow-lg hover:shadow-xl"
-              >
-                Complete Module
-              </button>
+
+            {/* Description */}
+            <div className="mb-8">
+              <p className="text-gray-300 leading-relaxed">
+                Reflect deeply on your experience and discoveries. Connect what you have learned with your personal creative journey and integrate insights into your practice.
+              </p>
+            </div>
+
+            {/* Main Content Container */}
+            <div className="bg-slate-700/50 rounded-xl p-6 space-y-8">
+              
+              {/* Reflection Questions Section */}
+              <div className="space-y-6">
+                <h2 className="text-xl font-bold text-blue-400 mb-4 flex items-center">
+                  🤔 Reflection Questions
+                </h2>
+                
+                <div className="space-y-4 text-gray-300 leading-relaxed">
+                  <p>Take a moment to reflect on your experience:</p>
+                  
+                  <div className="ml-6 space-y-4">
+                    <div className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                      <div>
+                        <p className="text-gray-300">
+                          <strong>What did I discover about my mental patterns today?</strong> Notice the rhythm and flow of your thoughts during the exercise.
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                      <div>
+                        <p className="text-gray-300">
+                          <strong>When my mind wandered, what wanted to emerge?</strong> Pay attention to the themes, images, or ideas that surfaced naturally.
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                      <div>
+                        <p className="text-gray-300">
+                          <strong>How might I create more space for this natural creative process?</strong> Consider practical ways to integrate mind-wandering into your daily routine.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Continue Your Learning Section */}
+              <div className="space-y-6">
+                <h2 className="text-xl font-bold text-blue-400 mb-4 flex items-center">
+                  📚 Continue Your Learning
+                </h2>
+                
+                <div className="space-y-4 text-gray-300 leading-relaxed">
+                  <p>Your mind-wandering journey doesn't end here. Consider these ways to deepen your practice:</p>
+                  
+                  <div className="ml-6 space-y-3">
+                    <div className="flex items-start space-x-3">
+                      <div className="text-blue-400 mt-1">→</div>
+                      <p className="text-gray-300">Schedule regular "boredom breaks" in your daily routine</p>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <div className="text-blue-400 mt-1">→</div>
+                      <p className="text-gray-300">Keep a mind-wandering journal to track insights and patterns</p>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <div className="text-blue-400 mt-1">→</div>
+                      <p className="text-gray-300">Explore the module resources for deeper scientific understanding</p>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <div className="text-blue-400 mt-1">→</div>
+                      <p className="text-gray-300">Share your discoveries with fellow learners in the community</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Personal Integration Section */}
+              <div className="space-y-6">
+                <h2 className="text-xl font-bold text-blue-400 mb-4 flex items-center">
+                  💭 Personal Integration
+                </h2>
+                
+                <div className="space-y-4 text-gray-300 leading-relaxed">
+                  <p>
+                    Remember that mind-wandering is a deeply personal experience. Your patterns, insights, and creative breakthroughs will be unique to you. Trust the process and be patient with yourself as you develop this essential creative skill.
+                  </p>
+                </div>
+              </div>
+
+              {/* Completion Section */}
+              <div className="text-center pt-6 border-t border-slate-600">
+                <button 
+                  onClick={() => markSectionComplete('takeAways')}
+                  className="px-8 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-xl font-semibold hover:from-purple-700 hover:to-indigo-700 transition-all duration-200 shadow-lg hover:shadow-xl"
+                >
+                  ✓ Complete Module
+                </button>
+              </div>
             </div>
           </div>
         )
+            
       
       default:
         return <div>Section not found</div>
