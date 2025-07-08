@@ -351,76 +351,90 @@ export default function ModulePage() {
       
       case 'mainExercise':
         return (
-          <div className="space-y-6">
-            <p className="text-gray-700 leading-relaxed">{section.content}</p>
-            
-            {/* Audio Guide */}
-            {section.audioGuide && (
-              <div className="bg-indigo-50 rounded-xl p-6">
-                <h4 className="font-semibold text-indigo-800 mb-3">🎧 Audio Guide</h4>
-                <div className="flex items-center justify-between bg-white rounded-lg p-4">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-indigo-600 rounded-full flex items-center justify-center">
-                      <span className="text-white">🎵</span>
-                    </div>
-                    <div>
-                      <h5 className="font-medium text-indigo-800">{section.audioGuide.title}</h5>
-                      <p className="text-sm text-indigo-600">{section.audioGuide.duration}</p>
-                    </div>
-                  </div>
-                  <a 
-                    href={section.audioGuide.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors font-medium"
-                  >
-                    🎧 Listen Now
-                  </a>
+          <div className="bg-slate-800 rounded-2xl p-8 text-white min-h-screen">
+            {/* Header Section */}
+            <div className="flex items-center justify-between mb-8">
+              <div className="flex items-center space-x-4">
+                <div className="w-8 h-8 bg-blue-500 rounded flex items-center justify-center text-white font-bold text-sm">
+                  3
                 </div>
-                <p className="text-sm text-indigo-700 mt-3">
-                  💡 <strong>Tip:</strong> Listen to this guided audio while doing the mind wandering exercise for the best experience.
-                </p>
-              </div>
-            )}
-            
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-green-50 rounded-xl p-6">
-                <h4 className="font-semibold text-green-800 mb-3">Instructions</h4>
-                <ol className="space-y-2">
-                  {section.instructions.map((instruction, index) => (
-                    <li key={index} className="flex items-start">
-                      <span className="w-6 h-6 bg-green-600 text-white rounded-full flex items-center justify-center text-sm mr-3 mt-0.5 flex-shrink-0">
-                        {index + 1}
-                      </span>
-                      <span className="text-green-700">{instruction}</span>
-                    </li>
-                  ))}
-                </ol>
-              </div>
-              
-              <div className="bg-orange-50 rounded-xl p-6">
-                <h4 className="font-semibold text-orange-800 mb-3">Materials Needed</h4>
-                <ul className="space-y-2">
-                  {section.materials.map((material, index) => (
-                    <li key={index} className="flex items-center">
-                      <span className="w-2 h-2 bg-orange-600 rounded-full mr-3"></span>
-                      <span className="text-orange-700">{material}</span>
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-4 pt-4 border-t border-orange-200">
-                  <p className="text-orange-800 font-medium">Time Required: {section.timeRequired}</p>
+                <div>
+                  <h1 className="text-2xl font-bold text-white">Main Exercise</h1>
+                  <p className="text-blue-400 text-sm">25 min</p>
                 </div>
               </div>
             </div>
-            
-            <div className="text-center">
-              <button 
-                onClick={() => markSectionComplete('mainExercise')}
-                className="px-6 py-3 bg-green-600 text-white rounded-xl font-semibold hover:bg-green-700 transition-all duration-200"
-              >
-                Mark Exercise Complete
-              </button>
+
+            {/* Description */}
+            <div className="mb-8">
+              <p className="text-gray-300 leading-relaxed">
+                Dive deep into the core activity of the session. Experiment, create and apply new techniques 
+                in a structured yet playful environment.
+              </p>
+            </div>
+
+            {/* Main Content Container */}
+            <div className="bg-slate-700/50 rounded-xl p-6 space-y-8">
+              
+              {/* Exercise Title Section */}
+              <div className="space-y-6">
+                <div className="flex items-center space-x-3 mb-4">
+                  <span className="text-2xl">🎯</span>
+                  <h2 className="text-xl font-bold text-blue-400">Mind Wandering Exercise</h2>
+                </div>
+                
+                <div className="text-gray-300 leading-relaxed">
+                  <p>
+                    This exercise invites you to explore the natural wandering of your mind in a natural setting. 
+                    Find a quiet outdoor space and allow your attention to drift freely while staying present.
+                  </p>
+                </div>
+              </div>
+
+              {/* Exercise Instructions Section */}
+              <div className="space-y-6">
+                <h2 className="text-xl font-bold text-blue-400 mb-4">Exercise Instructions</h2>
+                
+                <div className="space-y-4 text-gray-300 leading-relaxed">
+                  {/* Bullet Points */}
+                  <div className="ml-6 space-y-3">
+                    <div className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                      <p className="text-gray-300">Find a natural setting (park, garden, or tree-lined area)</p>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                      <p className="text-gray-300">Sit comfortably and allow your gaze to soften</p>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                      <p className="text-gray-300">Notice when your mind begins to wander naturally</p>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                      <p className="text-gray-300">Don't force focus - let your attention drift freely</p>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                      <p className="text-gray-300">Observe what thoughts, images, or ideas emerge</p>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                      <p className="text-gray-300">Spend 15-20 minutes in this state of open awareness</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Action Button */}
+              <div className="pt-6 border-t border-slate-600">
+                <button 
+                  onClick={() => markSectionComplete('mainExercise')}
+                  className="w-full px-6 py-4 bg-gradient-to-r from-blue-500 to-indigo-500 text-white rounded-xl font-semibold hover:from-blue-600 hover:to-indigo-600 transition-all duration-200 shadow-lg hover:shadow-xl"
+                >
+                  Mark Exercise Complete
+                </button>
+              </div>
             </div>
           </div>
         )
