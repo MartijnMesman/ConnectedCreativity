@@ -2,6 +2,8 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import Header from '@/components/Layout/Header'
+import BackgroundElements from '@/components/Layout/BackgroundElements'
 
 interface Resource {
   id: number
@@ -168,51 +170,40 @@ export default function ResourcesPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-100">
-      {/* Header */}
-      <header className="bg-white shadow-sm border-b border-purple-100">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4">
-              <Link href="/" className="w-12 h-12 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-xl">CC</span>
-              </Link>
-              <div>
-                <h1 className="text-2xl font-bold text-gray-800">Learning Resources</h1>
-                <p className="text-sm text-purple-600">Expand your creative toolkit</p>
-              </div>
-            </div>
-            <nav className="hidden md:flex space-x-6">
-              <Link href="/" className="text-gray-600 hover:text-purple-600">Home</Link>
-              <Link href="/course" className="text-gray-600 hover:text-purple-600">Course</Link>
-              <Link href="/progress" className="text-gray-600 hover:text-purple-600">Progress</Link>
-              <Link href="/resources" className="text-purple-600 hover:text-purple-800 font-medium">Resources</Link>
-            </nav>
-          </div>
-        </div>
-      </header>
+    <div className="min-h-screen bg-gradient-main">
+      <Header />
 
-      <div className="container mx-auto px-4 py-8">
+      <div className="container-section">
+        {/* Hero Section */}
+        <div className="text-center max-w-4xl mx-auto mb-16">
+          <h1 className="heading-xl mb-8">
+            Learning Resources
+          </h1>
+          <p className="body-lg mb-8 max-w-3xl mx-auto">
+            Expand your creative toolkit with our curated collection of guides, templates, and multimedia resources.
+          </p>
+        </div>
+
         {/* Featured Resources */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-800 mb-6">Featured Resources</h2>
+          <h2 className="heading-md text-white mb-6">Featured Resources</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {featuredResources.map((resource) => (
-              <div key={resource.id} className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all duration-200">
+              <div key={resource.id} className="card-primary">
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-3xl">{getTypeIcon(resource.type)}</span>
                   <span className={`px-2 py-1 rounded-full text-xs font-medium border ${getTypeColor(resource.type)}`}>
                     {resource.type.toUpperCase()}
                   </span>
                 </div>
-                <h3 className="font-semibold text-gray-800 mb-2">{resource.title}</h3>
-                <p className="text-sm text-gray-600 mb-4 line-clamp-3">{resource.description}</p>
+                <h3 className="font-semibold text-white mb-2">{resource.title}</h3>
+                <p className="text-sm text-gray-300 mb-4 line-clamp-3">{resource.description}</p>
                 <div className="flex items-center justify-between">
-                  <div className="text-xs text-gray-500">
+                  <div className="text-xs text-gray-400">
                     {resource.duration && <span>{resource.duration}</span>}
                     {resource.size && <span>{resource.size}</span>}
                   </div>
-                  <button className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors text-sm">
+                  <button className="btn-primary text-sm px-4 py-2">
                     Download
                   </button>
                 </div>
@@ -222,7 +213,7 @@ export default function ResourcesPage() {
         </section>
 
         {/* Search and Filters */}
-        <section className="bg-white rounded-2xl shadow-lg p-6 mb-8">
+        <section className="card-secondary mb-8">
           <div className="grid lg:grid-cols-3 gap-6">
             {/* Search */}
             <div>
@@ -232,7 +223,7 @@ export default function ResourcesPage() {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder="Search by title, description, or tags..."
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                className="form-input"
               />
             </div>
 
@@ -242,7 +233,7 @@ export default function ResourcesPage() {
               <select
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                className="form-select"
               >
                 {categories.map((category) => (
                   <option key={category.key} value={category.key}>
@@ -258,7 +249,7 @@ export default function ResourcesPage() {
               <select
                 value={selectedType}
                 onChange={(e) => setSelectedType(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                className="form-select"
               >
                 {types.map((type) => (
                   <option key={type.key} value={type.key}>
@@ -273,13 +264,13 @@ export default function ResourcesPage() {
         {/* All Resources */}
         <section>
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold text-gray-800">All Resources</h2>
-            <span className="text-gray-600">{filteredResources.length} resources found</span>
+            <h2 className="heading-md text-white">All Resources</h2>
+            <span className="text-gray-300">{filteredResources.length} resources found</span>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredResources.map((resource) => (
-              <div key={resource.id} className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all duration-200">
+              <div key={resource.id} className="card-primary">
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-3xl">{getTypeIcon(resource.type)}</span>
                   <div className="flex items-center space-x-2">
@@ -294,35 +285,35 @@ export default function ResourcesPage() {
                   </div>
                 </div>
 
-                <h3 className="font-semibold text-gray-800 mb-2">{resource.title}</h3>
-                <p className="text-sm text-gray-600 mb-4 line-clamp-3">{resource.description}</p>
+                <h3 className="font-semibold text-white mb-2">{resource.title}</h3>
+                <p className="text-sm text-gray-300 mb-4 line-clamp-3">{resource.description}</p>
 
                 {/* Tags */}
                 <div className="flex flex-wrap gap-1 mb-4">
                   {resource.tags.slice(0, 3).map((tag, index) => (
-                    <span key={index} className="px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs">
+                    <span key={index} className="px-2 py-1 bg-gray-700 text-gray-300 rounded text-xs">
                       #{tag}
                     </span>
                   ))}
                   {resource.tags.length > 3 && (
-                    <span className="px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs">
+                    <span className="px-2 py-1 bg-gray-700 text-gray-300 rounded text-xs">
                       +{resource.tags.length - 3} more
                     </span>
                   )}
                 </div>
 
                 <div className="flex items-center justify-between">
-                  <div className="text-xs text-gray-500">
+                  <div className="text-xs text-gray-400">
                     {resource.duration && <span className="block">{resource.duration}</span>}
                     {resource.size && <span className="block">{resource.size}</span>}
                   </div>
                   <div className="flex space-x-2">
                     {resource.previewUrl && (
-                      <button className="px-3 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors text-sm">
+                      <button className="btn-secondary text-sm px-3 py-2">
                         Preview
                       </button>
                     )}
-                    <button className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors text-sm">
+                    <button className="btn-primary text-sm px-4 py-2">
                       Download
                     </button>
                   </div>
@@ -334,12 +325,14 @@ export default function ResourcesPage() {
           {filteredResources.length === 0 && (
             <div className="text-center py-12">
               <div className="text-6xl mb-4">🔍</div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">No resources found</h3>
-              <p className="text-gray-600">Try adjusting your search criteria or filters.</p>
+              <h3 className="heading-sm text-white mb-2">No resources found</h3>
+              <p className="text-gray-300">Try adjusting your search criteria or filters.</p>
             </div>
           )}
         </section>
       </div>
+
+      <BackgroundElements />
     </div>
   )
 }

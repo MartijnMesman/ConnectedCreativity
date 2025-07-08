@@ -32,6 +32,237 @@ a {
   text-decoration: none;
 }
 
+/* Consistent Design System Variables */
+:root {
+  --primary-gradient: linear-gradient(135deg, #a855f7, #ec4899, #8b5cf6);
+  --background-gradient: linear-gradient(to bottom right, #0f172a, #1e293b, #0f172a);
+  --card-background: rgba(30, 41, 59, 0.5);
+  --card-border: rgba(71, 85, 105, 0.5);
+  --text-primary: #ffffff;
+  --text-secondary: #cbd5e1;
+  --text-muted: #64748b;
+  --accent-purple: #a855f7;
+  --accent-pink: #ec4899;
+  --accent-blue: #3b82f6;
+  --success-green: #10b981;
+  --warning-yellow: #f59e0b;
+  --error-red: #ef4444;
+}
+
+/* Global Typography System */
+.heading-xl {
+  font-size: clamp(3rem, 8vw, 5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.heading-lg {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+
+.heading-md {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--text-primary);
+}
+
+.heading-sm {
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--text-primary);
+}
+
+.body-lg {
+  font-size: clamp(1.125rem, 2vw, 1.25rem);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.body-md {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.body-sm {
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+/* Consistent Button System */
+.btn-primary {
+  @apply inline-flex items-center px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-lg font-semibold rounded-full hover:from-purple-600 hover:to-pink-600 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl shadow-lg;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center px-6 py-3 bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 text-white font-medium rounded-xl hover:bg-slate-800/70 transition-all duration-300 hover:scale-105 hover:shadow-xl;
+}
+
+.btn-ghost {
+  @apply inline-flex items-center px-4 py-2 text-gray-300 hover:text-white font-medium transition-colors duration-200;
+}
+
+/* Consistent Card System */
+.card-primary {
+  @apply bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-8 hover:bg-slate-800/70 transition-all duration-300 hover:scale-105 hover:shadow-2xl;
+}
+
+.card-secondary {
+  @apply bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all duration-200;
+}
+
+.card-glass {
+  @apply bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6;
+}
+
+/* Consistent Layout System */
+.container-main {
+  @apply container mx-auto px-6 py-20;
+}
+
+.container-section {
+  @apply container mx-auto px-4 py-8;
+}
+
+.grid-feature {
+  @apply grid md:grid-cols-3 gap-8;
+}
+
+.grid-content {
+  @apply grid lg:grid-cols-3 gap-8;
+}
+
+/* Consistent Navigation */
+.nav-header {
+  @apply relative z-10;
+}
+
+.nav-container {
+  @apply container mx-auto px-6 py-6;
+}
+
+.nav-content {
+  @apply flex items-center justify-between;
+}
+
+.nav-brand {
+  @apply text-xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400;
+}
+
+.nav-menu {
+  @apply hidden md:flex space-x-8;
+}
+
+.nav-link {
+  @apply text-gray-300 hover:text-white font-medium transition-colors duration-200;
+}
+
+.nav-link-active {
+  @apply text-white font-medium;
+}
+
+/* Consistent Background Elements */
+.bg-gradient-main {
+  background: var(--background-gradient);
+}
+
+.bg-elements {
+  @apply fixed inset-0 overflow-hidden pointer-events-none;
+}
+
+.bg-element-1 {
+  @apply absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl;
+}
+
+.bg-element-2 {
+  @apply absolute bottom-1/4 right-1/4 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl;
+}
+
+.bg-element-3 {
+  @apply absolute top-3/4 left-1/2 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl;
+}
+
+/* Consistent Form Elements */
+.form-input {
+  @apply w-full px-4 py-3 bg-slate-700/50 border border-slate-600 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200;
+}
+
+.form-textarea {
+  @apply w-full px-4 py-3 bg-slate-700/50 border border-slate-600 rounded-lg text-white placeholder-gray-400 resize-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200;
+}
+
+.form-select {
+  @apply w-full px-4 py-3 bg-slate-700/50 border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200;
+}
+
+.form-checkbox {
+  @apply w-5 h-5 text-purple-600 bg-slate-700 border-slate-600 rounded focus:ring-purple-500 focus:ring-2;
+}
+
+.form-radio {
+  @apply w-4 h-4 text-purple-600 bg-slate-700 border-slate-600 focus:ring-purple-500 focus:ring-2;
+}
+
+/* Consistent Status Indicators */
+.status-success {
+  @apply bg-green-100 text-green-800 border border-green-200;
+}
+
+.status-warning {
+  @apply bg-yellow-100 text-yellow-800 border border-yellow-200;
+}
+
+.status-error {
+  @apply bg-red-100 text-red-800 border border-red-200;
+}
+
+.status-info {
+  @apply bg-blue-100 text-blue-800 border border-blue-200;
+}
+
+/* Consistent Progress Elements */
+.progress-bar {
+  @apply w-full bg-slate-700 rounded-full h-3;
+}
+
+.progress-fill {
+  @apply bg-gradient-to-r from-purple-500 to-pink-500 h-3 rounded-full transition-all duration-500;
+}
+
+.progress-text {
+  @apply text-sm text-gray-400;
+}
+
+/* Consistent Badge System */
+.badge-primary {
+  @apply px-3 py-1 bg-purple-500/20 text-purple-400 border border-purple-500/30 rounded-full text-sm font-medium;
+}
+
+.badge-secondary {
+  @apply px-3 py-1 bg-blue-500/20 text-blue-400 border border-blue-500/30 rounded-full text-sm font-medium;
+}
+
+.badge-success {
+  @apply px-3 py-1 bg-green-500/20 text-green-400 border border-green-500/30 rounded-full text-sm font-medium;
+}
+
+.badge-warning {
+  @apply px-3 py-1 bg-yellow-500/20 text-yellow-400 border border-yellow-500/30 rounded-full text-sm font-medium;
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
@@ -64,14 +295,6 @@ a {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Gradient text */
-.gradient-text {
-  background: linear-gradient(135deg, #a855f7, #ec4899, #8b5cf6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
 /* Hover animations */
 .hover-lift {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -82,33 +305,22 @@ a {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
-/* Button animations */
-.btn-gradient {
-  background: linear-gradient(135deg, #8b5cf6, #ec4899);
-  position: relative;
-  overflow: hidden;
-}
-
-.btn-gradient::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.5s;
-}
-
-.btn-gradient:hover::before {
-  left: 100%;
-}
-
 /* Responsive design */
 @media (max-width: 768px) {
-  .container {
-    padding-left: 1rem;
-    padding-right: 1rem;
+  .container-main {
+    @apply px-4 py-12;
+  }
+  
+  .container-section {
+    @apply px-4 py-6;
+  }
+  
+  .grid-feature {
+    @apply grid-cols-1 gap-6;
+  }
+  
+  .grid-content {
+    @apply grid-cols-1 gap-6;
   }
 }
 
@@ -116,5 +328,31 @@ a {
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus styles for accessibility */
+*:focus {
+  outline: 2px solid #a855f7;
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .card-primary {
+    border-width: 2px;
+  }
+  
+  .btn-primary {
+    border: 2px solid #ffffff;
   }
 }

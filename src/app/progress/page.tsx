@@ -2,6 +2,8 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import Header from '@/components/Layout/Header'
+import BackgroundElements from '@/components/Layout/BackgroundElements'
 
 interface ProgressData {
   overallProgress: number
@@ -68,7 +70,6 @@ const progressData: ProgressData = {
       timeSpent: "0m",
       lastAccessed: "Never"
     },
-    // ... other modules
   ],
   achievements: [
     {
@@ -133,9 +134,9 @@ export default function ProgressPage() {
   const getStatusBadge = (status: string) => {
     switch (status) {
       case 'completed':
-        return 'bg-green-100 text-green-800 border-green-200'
+        return 'status-success'
       case 'in-progress':
-        return 'bg-blue-100 text-blue-800 border-blue-200'
+        return 'status-info'
       case 'not-started':
         return 'bg-gray-100 text-gray-600 border-gray-200'
       default:
@@ -144,34 +145,13 @@ export default function ProgressPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-100">
-      {/* Header */}
-      <header className="bg-white shadow-sm border-b border-purple-100">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4">
-              <Link href="/" className="w-12 h-12 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-xl">CC</span>
-              </Link>
-              <div>
-                <h1 className="text-2xl font-bold text-gray-800">Your Progress</h1>
-                <p className="text-sm text-purple-600">Track your creative journey</p>
-              </div>
-            </div>
-            <nav className="hidden md:flex space-x-6">
-              <Link href="/" className="text-gray-600 hover:text-purple-600">Home</Link>
-              <Link href="/course" className="text-gray-600 hover:text-purple-600">Course</Link>
-              <Link href="/progress" className="text-purple-600 hover:text-purple-800 font-medium">Progress</Link>
-              <Link href="/resources" className="text-gray-600 hover:text-purple-600">Resources</Link>
-            </nav>
-          </div>
-        </div>
-      </header>
+    <div className="min-h-screen bg-gradient-main">
+      <Header />
 
-      <div className="container mx-auto px-4 py-8">
+      <div className="container-section">
         {/* Progress Overview Cards */}
         <div className="grid md:grid-cols-4 gap-6 mb-8">
-          <div className="bg-white rounded-2xl shadow-lg p-6 text-center">
+          <div className="card-secondary text-center">
             <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-indigo-500 rounded-full flex items-center justify-center mx-auto mb-4">
               <span className="text-white text-2xl">📊</span>
             </div>
@@ -179,7 +159,7 @@ export default function ProgressPage() {
             <p className="text-gray-600">Overall Progress</p>
           </div>
 
-          <div className="bg-white rounded-2xl shadow-lg p-6 text-center">
+          <div className="card-secondary text-center">
             <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4">
               <span className="text-white text-2xl">✅</span>
             </div>
@@ -187,7 +167,7 @@ export default function ProgressPage() {
             <p className="text-gray-600">Modules Completed</p>
           </div>
 
-          <div className="bg-white rounded-2xl shadow-lg p-6 text-center">
+          <div className="card-secondary text-center">
             <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
               <span className="text-white text-2xl">🔥</span>
             </div>
@@ -195,7 +175,7 @@ export default function ProgressPage() {
             <p className="text-gray-600">Day Streak</p>
           </div>
 
-          <div className="bg-white rounded-2xl shadow-lg p-6 text-center">
+          <div className="card-secondary text-center">
             <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-4">
               <span className="text-white text-2xl">⏱️</span>
             </div>
@@ -205,7 +185,7 @@ export default function ProgressPage() {
         </div>
 
         {/* Tab Navigation */}
-        <div className="bg-white rounded-2xl shadow-lg mb-8">
+        <div className="card-secondary mb-8">
           <div className="border-b border-gray-200">
             <nav className="flex space-x-8 px-6">
               {[
@@ -238,9 +218,9 @@ export default function ProgressPage() {
                     <h3 className="text-lg font-semibold text-gray-800">Course Completion</h3>
                     <span className="text-sm text-gray-600">{progressData.overallProgress}%</span>
                   </div>
-                  <div className="w-full bg-gray-200 rounded-full h-3">
+                  <div className="progress-bar">
                     <div 
-                      className="bg-gradient-to-r from-purple-500 to-indigo-500 h-3 rounded-full transition-all duration-500"
+                      className="progress-fill"
                       style={{ width: `${progressData.overallProgress}%` }}
                     ></div>
                   </div>
@@ -338,7 +318,7 @@ export default function ProgressPage() {
                         <span className="text-sm text-gray-600">Progress</span>
                         <span className="text-sm font-medium">{module.progress}%</span>
                       </div>
-                      <div className="w-full bg-gray-200 rounded-full h-2">
+                      <div className="progress-bar">
                         <div 
                           className={`h-2 rounded-full transition-all duration-500 ${getProgressColor(module.progress)}`}
                           style={{ width: `${module.progress}%` }}
@@ -355,7 +335,7 @@ export default function ProgressPage() {
                       <div className="mt-4">
                         <Link
                           href={`/course/module/${module.id}`}
-                          className="inline-flex items-center px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+                          className="btn-primary text-sm px-4 py-2"
                         >
                           Continue Learning
                         </Link>
@@ -405,6 +385,8 @@ export default function ProgressPage() {
           </div>
         </div>
       </div>
+
+      <BackgroundElements />
     </div>
   )
 }
