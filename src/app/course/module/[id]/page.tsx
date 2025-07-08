@@ -618,6 +618,7 @@ export default function ModulePage() {
               {/* Audio Guide Section */}
               <div c
         )
+        )
     }
   }
 }lassName="space-y-6">
