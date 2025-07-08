@@ -64,12 +64,19 @@ const moduleContent: ModuleContent = {
   sections: {
     anchoring: {
       title: "Grounding in the Present",
-      content: "Welcome to our exploration of mind wandering. Before we let our minds roam free, we first need to anchor ourselves in the present moment. This paradox - being present to wander - is at the heart of creative thinking.",
+      content: "Ground yourself in the present moment. Begin each session with conscious breathing and body awareness to create a stable foundation for the creative process.",
       media: {
         type: 'audio',
         url: '/audio/anchoring-meditation.mp3',
         duration: '8 minutes'
-      }
+      },
+      checklist: [
+        'Find a natural setting (park, garden, beach, or even a tree-lined street)',
+        'Set aside 20 uninterrupted minutes',
+        'After reading the instructions and downloading the audio we recommend switching your phone to airplane mode',
+        'Bring headphones',
+        'Approach with curiosity, not expectations'
+      ]
     },
     context: {
       title: "The Science of Mind Wandering",
@@ -180,6 +187,27 @@ export default function ModulePage() {
         return (
           <div className="space-y-6">
             <p className="text-gray-700 leading-relaxed">{section.content}</p>
+            
+            {/* Preparation Checklist */}
+            {section.checklist && (
+              <div className="bg-green-50 rounded-xl p-6">
+                <div className="flex items-center space-x-2 mb-4">
+                  <div className="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center">
+                    <span className="text-white text-sm">✓</span>
+                  </div>
+                  <h4 className="font-semibold text-green-800">Your preparation checklist:</h4>
+                </div>
+                <ul className="space-y-3">
+                  {section.checklist.map((item: string, index: number) => (
+                    <li key={index} className="flex items-start space-x-3">
+                      <span className="w-2 h-2 bg-green-600 rounded-full mt-2 flex-shrink-0"></span>
+                      <span className="text-green-700">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            
             {section.media && (
               <div className="bg-purple-50 rounded-xl p-6">
                 <h4 className="font-semibold text-purple-800 mb-3">Guided Audio</h4>
