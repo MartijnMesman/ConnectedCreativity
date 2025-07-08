@@ -555,29 +555,25 @@ export default function ModulePage() {
       
       case 'senseMaking':
         return (
-          <div className="space-y-6">
-            <p className="text-gray-700 leading-relaxed">{section.content}</p>
-            
-            <div className="bg-indigo-50 rounded-xl p-6">
-              <h4 className="font-semibold text-indigo-800 mb-4">Reflection Questions</h4>
-              <div className="space-y-4">
-                {section.reflectionQuestions.map((question, index) => (
-                  <div key={index} className="bg-white rounded-lg p-4">
-                    <p className="font-medium text-indigo-800 mb-2">{question}</p>
-                    <textarea 
-                      className="w-full p-3 border border-indigo-200 rounded-lg resize-none"
-                      rows={3}
-                      placeholder="Write your reflection here..."
-                    />
-                  </div>
-                ))}
+          <div className="bg-slate-800 rounded-2xl p-8 text-white min-h-screen">
+            {/* Header Section */}
+            <div className="flex items-center justify-between mb-8">
+              <div className="flex items-center space-x-4">
+                <div className="w-8 h-8 bg-blue-500 rounded flex items-center justify-center text-white font-bold text-sm">
+                  4
+                </div>
+                <div>
+                  <h1 className="text-2xl font-bold text-white">Sense Making</h1>
+                  <p className="text-blue-400 text-sm">8 min</p>
+                </div>
               </div>
-              
-              <div className="mt-6 text-center">
-                <button className="px-6 py-3 bg-indigo-600 text-white rounded-xl font-semibold hover:bg-indigo-700 transition-all duration-200">
-                  Save Reflections
-                </button>
-              </div>
+            </div>
+
+            {/* Description */}
+            <div className="mb-8">
+              <p className="text-gray-300 leading-relaxed">
+                Organize and structure your discoveries. Create layers of understanding by categorizing insights and connecting different elements of your learning experience.
+              </p>
             </div>
           </div>
         )
