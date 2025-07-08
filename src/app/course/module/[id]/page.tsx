@@ -229,24 +229,123 @@ export default function ModulePage() {
       
       case 'context':
         return (
-          <div className="space-y-6">
-            <p className="text-gray-700 leading-relaxed">{section.content}</p>
-            {section.readings && (
-              <div className="space-y-4">
-                <h4 className="font-semibold text-gray-800">Required Readings</h4>
-                {section.readings.map((reading, index) => (
-                  <div key={index} className="bg-blue-50 rounded-xl p-4 flex items-center justify-between">
-                    <div>
-                      <h5 className="font-medium text-blue-800">{reading.title}</h5>
-                      <p className="text-sm text-blue-600">by {reading.author} • {reading.duration}</p>
-                    </div>
-                    <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
-                      Read
-                    </button>
-                  </div>
-                ))}
+          <div className="bg-slate-800 rounded-2xl p-8 text-white min-h-screen">
+            {/* Header Section */}
+            <div className="flex items-center justify-between mb-8">
+              <div className="flex items-center space-x-4">
+                <div className="w-8 h-8 bg-blue-500 rounded flex items-center justify-center text-white font-bold text-sm">
+                  2
+                </div>
+                <div>
+                  <h1 className="text-2xl font-bold text-white">Context</h1>
+                  <p className="text-blue-400 text-sm">10 min</p>
+                </div>
               </div>
-            )}
+            </div>
+
+            {/* Description */}
+            <div className="mb-8">
+              <p className="text-gray-300 leading-relaxed">
+                Explore the background and framework of the session. Understand the objectives, connect with 
+                previous lessons and set intentions for what you want to achieve.
+              </p>
+            </div>
+
+            {/* Main Content Container */}
+            <div className="bg-slate-700/50 rounded-xl p-6 space-y-8">
+              
+              {/* The Mind-Wandering Revolution Section */}
+              <div className="space-y-6">
+                <h2 className="text-xl font-bold text-blue-400 mb-4">The Mind-Wandering Revolution</h2>
+                
+                <div className="space-y-4 text-gray-300 leading-relaxed">
+                  <p>
+                    For too long, we've been told that wandering minds are unproductive minds. Our hustle 
+                    culture demands constant focus, endless optimization, and perpetual "grinding." But here's 
+                    what the science actually shows:
+                  </p>
+                  
+                  <p className="font-medium text-white">
+                    Mind-wandering isn't a bug—it's a feature. When your attention drifts, your brain doesn't 
+                    shut down. Instead, it shifts into a different mode of operation that's essential for creative 
+                    thinking.
+                  </p>
+                </div>
+              </div>
+
+              {/* What Research Reveals Section */}
+              <div className="space-y-6">
+                <h2 className="text-xl font-bold text-blue-400 mb-4">What Research Reveals</h2>
+                
+                <div className="space-y-4 text-gray-300 leading-relaxed">
+                  <p>
+                    Psychologists now understand that boredom functions like hunger—it's your brain 
+                    signaling that it needs deeper, more meaningful engagement. When we're constantly 
+                    plugged in and task-focused, we starve this essential cognitive process.
+                  </p>
+                  
+                  <p>
+                    During spontaneous mind-wandering, your brain activates what neuroscientists call the 
+                    Default Mode Network (DMN)—a collection of brain regions that light up when you're not 
+                    focused on specific tasks. This isn't downtime; it's when your brain:
+                  </p>
+                  
+                  {/* Bullet Points */}
+                  <div className="ml-6 space-y-3">
+                    <div className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                      <p className="text-gray-300">Processes complex, big-picture ideas</p>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                      <p className="text-gray-300">Makes unexpected connections between seemingly unrelated concepts</p>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                      <p className="text-gray-300">Integrates experiences into creative insights</p>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                      <p className="text-gray-300">Generates novel solutions to persistent problems</p>
+                    </div>
+                  </div>
+                  
+                  <p className="font-medium text-white">
+                    A major study tracking over 1,300 participants found that people who frequently engage in 
+                    spontaneous mind-wandering score significantly higher on creative thinking assessments.
+                  </p>
+                </div>
+              </div>
+
+              {/* The Creative Breakthrough Pattern Section */}
+              <div className="space-y-6">
+                <h2 className="text-xl font-bold text-blue-400 mb-4">The Creative Breakthrough Pattern</h2>
+                
+                <div className="space-y-4 text-gray-300 leading-relaxed">
+                  <p>Many of history's most innovative ideas emerged during moments of mental drift:</p>
+                  
+                  {/* Bullet Points */}
+                  <div className="ml-6 space-y-3">
+                    <div className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                      <p className="text-gray-300">Business innovations often strike during walks, showers, or commutes</p>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                      <p className="text-gray-300">Artistic breakthroughs frequently come when creators step away from their work</p>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                      <p className="text-gray-300">Scientific discoveries regularly happen during periods of "relaxed attention"</p>
+                    </div>
+                  </div>
+                  
+                  <p className="font-bold text-white text-lg">
+                    The pattern is clear: when we give our minds permission to wander, creativity follows.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         )
       
