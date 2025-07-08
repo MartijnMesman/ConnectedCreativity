@@ -453,7 +453,92 @@ export default function ModulePage() {
                 </div>
               </div>
 
+              {/* Exercise Levels Section */}
+              <div className="space-y-8">
+                {/* Gentle Entry Level */}
+                <div className="bg-slate-600/50 rounded-lg p-6">
+                  <h2 className="text-xl font-bold text-green-400 mb-4 flex items-center">
+                    🌿 Gentle Entry Level
+                  </h2>
+                  
+                  <div className="space-y-4 text-gray-300 leading-relaxed">
+                    <p>If you couldn't complete the full guided exercise, or if it felt overwhelming:</p>
+                    
+                    <div className="ml-6 space-y-3">
+                      <div className="flex items-start space-x-3">
+                        <div className="w-2 h-2 bg-green-400 rounded-full mt-2 flex-shrink-0"></div>
+                        <p className="text-gray-300">Set up your alarm on the phone for 4 minutes and simply sit in your chosen natural space without any audio.</p>
+                      </div>
+                      <div className="flex items-start space-x-3">
+                        <div className="w-2 h-2 bg-green-400 rounded-full mt-2 flex-shrink-0"></div>
+                        <p className="text-gray-300">Let your eyes rest on something natural (trees, sky, water) without trying to focus</p>
+                      </div>
+                      <div className="flex items-start space-x-3">
+                        <div className="w-2 h-2 bg-green-400 rounded-full mt-2 flex-shrink-0"></div>
+                        <p className="text-gray-300">When thoughts come, just notice them like watching traffic pass by</p>
+                      </div>
+                      <div className="flex items-start space-x-3">
+                        <div className="w-2 h-2 bg-green-400 rounded-full mt-2 flex-shrink-0"></div>
+                        <p className="text-gray-300">If you feel restless or distracted, that's completely normal—just stay curious about what your mind wants to do</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
+                {/* Starter Level */}
+                <div className="bg-slate-600/50 rounded-lg p-6">
+                  <h2 className="text-xl font-bold text-yellow-400 mb-4 flex items-center">
+                    🌱 Starter Level
+                  </h2>
+                  
+                  <div className="space-y-4 text-gray-300 leading-relaxed">
+                    <p>Complete the guided exercise once and continue to the "what did you take forward" part.</p>
+                  </div>
+                </div>
+
+                {/* Deep Dive Level */}
+                <div className="bg-slate-600/50 rounded-lg p-6">
+                  <h2 className="text-xl font-bold text-blue-400 mb-4 flex items-center">
+                    🌳 Deep Dive Level
+                  </h2>
+                  
+                  <div className="space-y-4 text-gray-300 leading-relaxed">
+                    <p>Over the next 2 days, become a detective of your own mind-wandering:</p>
+                    
+                    <div className="ml-6 space-y-3">
+                      <div className="flex items-start space-x-3">
+                        <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                        <p className="text-gray-300">Notice when your attention naturally drifts throughout the day</p>
+                      </div>
+                      <div className="flex items-start space-x-3">
+                        <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                        <p className="text-gray-300">Log these moments: Where were you? What triggered the wandering? How did you return to focus?</p>
+                      </div>
+                      <div className="flex items-start space-x-3">
+                        <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                        <p className="text-gray-300">Pay special attention to any creative ideas or insights that emerge during or shortly after these wandering periods</p>
+                      </div>
+                      <div className="flex items-start space-x-3">
+                        <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+                        <p className="text-gray-300">Track patterns: When does your most productive mind-wandering happen?</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Additional Context */}
+                <div className="bg-slate-600/50 rounded-lg p-6">
+                  <h2 className="text-xl font-bold text-purple-400 mb-4 flex items-center">
+                    💡 Additional Context
+                  </h2>
+                  
+                  <div className="space-y-4 text-gray-300 leading-relaxed">
+                    <p>
+                      Each tier is designed to meet you where you are in your creative journey. There's no "right" level—choose what feels most supportive and challenging for your current state. You can always return and try a different tier as your practice develops.
+                    </p>
+                  </div>
+                </div>
+              </div>
 
               {/* Completion Section */}
               <div className="text-center pt-6 border-t border-slate-600">
