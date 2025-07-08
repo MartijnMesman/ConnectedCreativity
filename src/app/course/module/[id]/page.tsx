@@ -79,22 +79,38 @@ const moduleContent: ModuleContent = {
       ]
     },
     context: {
-      title: "The Science of Mind Wandering",
-      content: "Mind wandering isn't just daydreaming - it's a fundamental cognitive process that enables creativity, problem-solving, and self-reflection. Research shows that our brains are most creative when we're not actively trying to be creative.",
-      readings: [
-        {
-          title: "The Wandering Mind: What the Brain Does When You're Not Looking",
-          author: "Michael Corballis",
-          url: "/readings/wandering-mind.pdf",
-          duration: "15 minutes"
-        },
-        {
-          title: "Default Network Activity and Creative Thinking",
-          author: "Beaty et al.",
-          url: "/readings/default-network.pdf",
-          duration: "20 minutes"
-        }
-      ]
+      title: "Context",
+      duration: "10 min",
+      content: `Explore the background and framework of the session. Understand the objectives, connect with previous lessons and set intentions for what you want to achieve.
+
+## The Mind-Wandering Revolution
+
+For too long, we've been told that wandering minds are unproductive minds. Our hustle culture demands constant focus, endless optimization, and perpetual "grinding." But here's what the science actually shows:
+
+Mind-wandering isn't a bug—it's a feature. When your attention drifts, your brain doesn't shut down. Instead, it shifts into a different mode of operation that's essential for creative thinking.
+
+## What Research Reveals
+
+Psychologists now understand that boredom functions like hunger—it's your brain signaling that it needs deeper, more meaningful engagement. When we're constantly plugged in and task-focused, we starve this essential cognitive process.
+
+During spontaneous mind-wandering, your brain activates what neuroscientists call the Default Mode Network (DMN)—a collection of brain regions that light up when you're not focused on specific tasks. This isn't downtime; it's when your brain:
+
+• Processes complex, big-picture ideas
+• Makes unexpected connections between seemingly unrelated concepts
+• Integrates experiences into creative insights
+• Generates novel solutions to persistent problems
+
+A major study tracking over 1,300 participants found that people who frequently engage in spontaneous mind-wandering score significantly higher on creative thinking assessments.
+
+## The Creative Breakthrough Pattern
+
+Many of history's most innovative ideas emerged during moments of mental drift:
+
+• Business innovations often strike during walks, showers, or commutes
+• Artistic breakthroughs frequently come when creators step away from their work
+• Scientific discoveries regularly happen during periods of "relaxed attention"
+
+The pattern is clear: when we give our minds permission to wander, creativity follows.`
     },
     mainExercise: {
       title: "Guided Mind Wandering Journey",
