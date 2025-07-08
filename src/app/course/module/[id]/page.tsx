@@ -616,11 +616,7 @@ export default function ModulePage() {
               </div>
 
               {/* Audio Guide Section */}
-              <div c
-        )
-    }
-  }
-}lassName="space-y-6">
+              <div className="space-y-6">
                 <h2 className="text-xl font-bold text-blue-400 mb-4">🎧 Audio Guide</h2>
                 
                 <div className="bg-slate-600/50 rounded-lg p-6">
@@ -926,6 +922,72 @@ export default function ModulePage() {
             <span className="text-2xl font-bold text-purple-400">{completedSections.length}/5</span>
           </div>
         </div>
+
+        {/* Navigation */}
+        <div className="flex justify-center mb-8">
+          <div className="flex space-x-2 bg-slate-800/50 rounded-xl p-2">
+            {sections.map((section) => {
+              const status = getSectionStatus(section.key)
+              return (
+                <button
+                  key={section.key}
+                  onClick={() => setCurrentSection(section.key)}
+                  className={`
+                    flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-200
+                    ${status === 'completed' 
+                      ? 'bg-green-600 text-white' 
+                      : status === 'current'
+                      ? 'bg-blue-600 text-white'
+                      : 'bg-slate-700 text-gray-300 hover:bg-slate-600'
+                    }
+                  `}
+                >
+                  <span>{section.icon}</span>
+                  <span className="text-sm font-medium">{section.title}</span>
+                  {status === 'completed' && <span className="text-xs">✓</span>}
+                </button>
+              )
+            })}
+          </div>
+        </div>
+
+        {/* Section Content */}
+        <div className="max-w-4xl mx-auto">
+          {renderSectionContent()}
+        </div>
+
+        {/* Navigation Footer */}
+        <div className="flex justify-between items-center max-w-4xl mx-auto mt-8 pt-8 border-t border-slate-700">
+          <Link 
+            href="/course"
+            className="flex items-center space-x-2 text-gray-400 hover:text-white transition-colors"
+          >
+            <span>←</span>
+            <span>Back to Course</span>
+          </Link>
+          
+          <div className="flex items-center space-x-4">
+            <span className="text-gray-400">
+              Section {sections.findIndex(s => s.key === currentSection) + 1} of {sections.length}
+            </span>
+            
+            {sections.findIndex(s => s.key === currentSection) < sections.length - 1 && (
+              <button
+                onClick={() => {
+                  const currentIndex = sections.findIndex(s => s.key === currentSection)
+                  if (currentIndex < sections.length - 1) {
+                    setCurrentSection(sections[currentIndex + 1].key)
+                  }
+                }}
+                className="flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+              >
+                <span>Next Section</span>
+                <span>→</span>
+              </button>
+            )}
+          </div>
+        </div>
+      </div>
 
       <BackgroundElements />
     </div>
