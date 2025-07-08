@@ -201,29 +201,223 @@ export default function ModulePage() {
     switch (currentSection) {
       case 'anchoring':
         return (
-          <div className="space-y-6">
-            <p className="text-gray-700 leading-relaxed">{section.content}</p>
-            
-            {/* Preparation Checklist */}
-            {section.checklist && (
-              <div className="bg-green-50 rounded-xl p-6">
-                <div className="flex items-center space-x-2 mb-4">
-                  <div className="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center">
-                    <span className="text-white text-sm">✓</span>
-                  </div>
-                  <h4 className="font-semibold text-green-800">Your preparation checklist:</h4>
+          <div className="bg-slate-800 rounded-2xl p-8 text-white min-h-screen">
+            {/* Header Section */}
+            <div className="flex items-center justify-between mb-8">
+              <div className="flex items-center space-x-4">
+                <div className="w-8 h-8 bg-blue-500 rounded flex items-center justify-center text-white font-bold text-sm">
+                  1
                 </div>
-                <ul className="space-y-3">
-                  {section.checklist.map((item: string, index: number) => (
-                    <li key={index} className="flex items-start space-x-3">
-                      <span className="w-2 h-2 bg-green-600 rounded-full mt-2 flex-shrink-0"></span>
-                      <span className="text-green-700">{item}</span>
-                    </li>
-                  ))}
-                </ul>
+                <div>
+                  <h1 className="text-2xl font-bold text-white">Anchoring</h1>
+                  <p className="text-blue-400 text-sm">5 min</p>
+                </div>
               </div>
-            )}
-            
+            </div>
+
+            {/* Description */}
+            <div className="mb-8">
+              <p className="text-gray-300 leading-relaxed">
+                Ground yourself in the present moment. Begin each session with conscious breathing and body awareness to create a stable foundation for the creative process.
+              </p>
+            </div>
+
+            {/* Main Content Container */}
+            <div className="bg-slate-700/50 rounded-xl p-6 space-y-8">
+              
+              {/* Introduction Section */}
+              <div className="space-y-6">
+                <h2 className="text-xl font-bold text-blue-400 mb-4">Creating Your Foundation</h2>
+                
+                <div className="space-y-4 text-gray-300 leading-relaxed">
+                  <p>
+                    Before we explore the wandering mind, we must first establish a stable foundation. Think of anchoring as creating a home base—a place of presence and awareness that you can return to throughout your creative journey.
+                  </p>
+                  
+                  <p className="font-medium text-white">
+                    This isn't about forcing focus or suppressing thoughts. Instead, it's about cultivating a gentle awareness that allows both presence and wandering to coexist naturally.
+                  </p>
+                </div>
+              </div>
+
+              {/* The Science of Anchoring Section */}
+              <div className="space-y-6">
+                <h2 className="text-xl font-bold text-blue-400 mb-4">The Science of Anchoring</h2>
+                
+                <div className="space-y-4 text-gray-300 leading-relaxed">
+                  <p>
+                    Neuroscience research shows that when we establish a present-moment anchor, we activate the prefrontal cortex—the brain region responsible for executive attention. This creates the perfect conditions for productive mind-wandering.
+                  </p>
+                  
+                  <p>
+                    Without this foundation, mind-wandering can become scattered and unproductive. With it, your wandering mind becomes a powerful tool for creative insight and problem-solving.
+                  </p>
+                </div>
+              </div>
+
+              {/* Preparation Checklist Section */}
+              <div className="space-y-6">
+                <h2 className="text-xl font-bold text-green-400 mb-4 flex items-center">
+                  ✓ Your Preparation Checklist
+                </h2>
+                
+                <div className="bg-slate-600/50 rounded-lg p-6">
+                  <div className="space-y-4 text-gray-300 leading-relaxed">
+                    <p className="text-green-300 font-medium mb-4">
+                      Before beginning your mind wandering practice, ensure you have everything needed for a successful session:
+                    </p>
+                    
+                    <div className="space-y-3">
+                      <div className="flex items-start space-x-3">
+                        <div className="w-2 h-2 bg-green-400 rounded-full mt-2 flex-shrink-0"></div>
+                        <p className="text-gray-300">Find a natural setting (park, garden, beach, or even a tree-lined street)</p>
+                      </div>
+                      <div className="flex items-start space-x-3">
+                        <div className="w-2 h-2 bg-green-400 rounded-full mt-2 flex-shrink-0"></div>
+                        <p className="text-gray-300">Set aside 20 uninterrupted minutes</p>
+                      </div>
+                      <div className="flex items-start space-x-3">
+                        <div className="w-2 h-2 bg-green-400 rounded-full mt-2 flex-shrink-0"></div>
+                        <p className="text-gray-300">After reading the instructions and downloading the audio we recommend switching your phone to airplane mode</p>
+                      </div>
+                      <div className="flex items-start space-x-3">
+                        <div className="w-2 h-2 bg-green-400 rounded-full mt-2 flex-shrink-0"></div>
+                        <p className="text-gray-300">Bring headphones</p>
+                      </div>
+                      <div className="flex items-start space-x-3">
+                        <div className="w-2 h-2 bg-green-400 rounded-full mt-2 flex-shrink-0"></div>
+                        <p className="text-gray-300">Approach with curiosity, not expectations</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Anchoring Technique Section */}
+              <div className="space-y-6">
+                <h2 className="text-xl font-bold text-blue-400 mb-4">Simple Anchoring Technique</h2>
+                
+                <div className="space-y-4 text-gray-300 leading-relaxed">
+                  <p>
+                    Use this gentle technique to establish your present-moment foundation before beginning the mind wandering exercise:
+                  </p>
+                  
+                  <div className="bg-slate-600/50 rounded-lg p-6">
+                    <div className="space-y-4">
+                      <div className="flex items-start space-x-4">
+                        <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0 mt-1">
+                          1
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-white mb-2">Settle Into Your Space</h4>
+                          <p className="text-gray-300">Find a comfortable position in your chosen natural setting. Allow your body to relax and your breathing to find its natural rhythm.</p>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-start space-x-4">
+                        <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0 mt-1">
+                          2
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-white mb-2">Notice Three Things</h4>
+                          <p className="text-gray-300">Gently notice three things you can see, three things you can hear, and three physical sensations. This grounds you in the present moment.</p>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-start space-x-4">
+                        <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0 mt-1">
+                          3
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-white mb-2">Establish Your Anchor</h4>
+                          <p className="text-gray-300">Choose one element—perhaps your breath, the feeling of your feet on the ground, or a natural sound—as your gentle anchor point.</p>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-start space-x-4">
+                        <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0 mt-1">
+                          4
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-white mb-2">Set Your Intention</h4>
+                          <p className="text-gray-300">Silently acknowledge: "I am here, present and open to whatever my mind wants to explore." This creates permission for natural wandering.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Audio Guide Section */}
+              <div className="space-y-6">
+                <h2 className="text-xl font-bold text-blue-400 mb-4">🎧 Guided Anchoring Audio</h2>
+                
+                <div className="bg-slate-600/50 rounded-lg p-6">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-4">
+                      <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center">
+                        <span className="text-white text-xl">🎵</span>
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-white">Anchoring Meditation</h3>
+                        <p className="text-green-400 text-sm">8 minutes</p>
+                      </div>
+                    </div>
+                    <a 
+                      href="/audio/anchoring-meditation.mp3"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-medium"
+                    >
+                      🎧 Listen Now
+                    </a>
+                  </div>
+                  <div className="mt-4 p-4 bg-green-900/30 rounded-lg border border-green-700/50">
+                    <p className="text-green-300 text-sm">
+                      💡 <strong>Tip:</strong> Use this guided audio to establish your anchoring practice before moving to the main mind wandering exercise.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Key Reminders Section */}
+              <div className="space-y-6">
+                <h2 className="text-xl font-bold text-purple-400 mb-4 flex items-center">
+                  💡 Key Reminders
+                </h2>
+                
+                <div className="bg-slate-600/50 rounded-lg p-6">
+                  <div className="space-y-4 text-gray-300 leading-relaxed">
+                    <div className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
+                      <p className="text-gray-300"><strong>Anchoring is not about control.</strong> You're creating a gentle home base, not forcing your mind to stay in one place.</p>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
+                      <p className="text-gray-300"><strong>Natural settings enhance the process.</strong> Being outdoors helps activate the relaxed awareness that supports creative mind-wandering.</p>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
+                      <p className="text-gray-300"><strong>Your anchor is always available.</strong> You can return to this present-moment awareness whenever you need grounding during the wandering process.</p>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
+                      <p className="text-gray-300"><strong>Trust the process.</strong> Some days anchoring will feel easy, others more challenging. Both experiences are valuable for your creative development.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Completion Section */}
+              <div className="text-center pt-6 border-t border-slate-600">
+                <button 
+                  onClick={() => markSectionComplete('anchoring')}
+                  className="px-8 py-4 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-xl font-semibold hover:from-green-700 hover:to-emerald-700 transition-all duration-200 shadow-lg hover:shadow-xl"
+                >
+                  ✓ Complete Anchoring
+                </button>
+              </div>
+            </div>
           </div>
         )
       
