@@ -1,4 +1,4 @@
-'use client'
+'use client' 
 
 import { useState } from 'react'
 import Link from 'next/link'
@@ -923,94 +923,5 @@ export default function ModulePage() {
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-4 gap-8">
-          {/* Section Navigation */}
-          <div className="lg:col-span-1">
-            <div className="card-primary sticky top-8">
-              <h2 className="heading-sm text-white mb-6">Module Sections</h2>
-              <div className="space-y-3">
-                {sections.map((section) => {
-                  const status = getSectionStatus(section.key)
-                  return (
-                    <button
-                      key={section.key}
-                      onClick={() => setCurrentSection(section.key)}
-                      className={`w-full p-4 rounded-xl text-left transition-all duration-200 border-2 ${
-                        status === 'completed' 
-                          ? 'bg-green-900/30 border-green-500 text-green-300'
-                          : status === 'current'
-                          ? 'bg-slate-700 border-slate-600 text-white'
-                          : 'bg-slate-700/50 border-slate-600 text-gray-300 hover:bg-slate-700'
-                      }`}
-                    >
-                      <div className="flex items-center space-x-3">
-                        <span className="text-xl">{section.icon}</span>
-                        <div>
-                          <h3 className="font-semibold text-sm text-white">{section.title}</h3>
-                          <p className="text-xs opacity-75">
-                            {status === 'completed' ? 'Completed' : 
-                             status === 'current' ? 'Current' : 'Upcoming'}
-                          </p>
-                        </div>
-                        {status === 'completed' && (
-                          <span className="ml-auto text-green-600">✓</span>
-                        )}
-                      </div>
-                    </button>
-                  )
-                })}
-              </div>
-            </div>
-          </div>
-
-          {/* Section Content */}
-          <div className="lg:col-span-3">
-            <div className="card-secondary p-8">
-              <div className="flex items-center space-x-3 mb-6">
-                <span className="text-3xl">
-                  {sections.find(s => s.key === currentSection)?.icon}
-                </span>
-                <h1 className="text-3xl font-bold text-gray-800">
-                  {sections.find(s => s.key === currentSection)?.title}
                 </h1>
-              </div>
-
-              {renderSectionContent()}
-
-              {/* Navigation */}
-              <div className="flex justify-between mt-8 pt-6 border-t border-gray-200">
-                <button
-                  onClick={() => {
-                    const currentIndex = sections.findIndex(s => s.key === currentSection)
-                    if (currentIndex > 0) {
-                      setCurrentSection(sections[currentIndex - 1].key)
-                    }
-                  }}
-                  disabled={sections.findIndex(s => s.key === currentSection) === 0}
-                  className="btn-secondary btn-lg disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  ← Previous
-                </button>
-                
-                <button
-                  onClick={() => {
-                    markSectionComplete(currentSection)
-                    const currentIndex = sections.findIndex(s => s.key === currentSection)
-                    if (currentIndex < sections.length - 1) {
-                      setCurrentSection(sections[currentIndex + 1].key)
-                    }
-                  }}
-                  className="btn-primary btn-lg"
-                >
                   {sections.findIndex(s => s.key === currentSection) === sections.length - 1 ? 'Complete Module' : 'Next →'}
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <BackgroundElements />
-    </div>
-  )
-}
