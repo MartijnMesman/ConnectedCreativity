@@ -156,7 +156,7 @@ The pattern is clear: when we give our minds permission to wander, creativity fo
           url: "/downloads/mind-wandering-guide.pdf"
         },
         {
-    description: 'Ground yourself in the present moment. Begin each session with conscious breathing and body awareness to create a stable foundation for the creative process.',
+          title: "Creative Journaling Template",
           type: "PDF",
           url: "/downloads/journaling-template.pdf"
         },
@@ -927,5 +927,7 @@ export default function ModulePage() {
           </div>
         </div>
 
-                </h1>
-                  {sections.findIndex(s => s.key === currentSection) === sections.length - 1 ? 'Complete Module' : 'Next →'}
+      <BackgroundElements />
+    </div>
+  )
+}
