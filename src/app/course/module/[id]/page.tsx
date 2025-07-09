@@ -616,11 +616,7 @@ export default function ModulePage() {
               </div>
 
               {/* Audio Guide Section */}
-              <div c
-        )
-        )
-    }
-  }
+              <div className="space-y-6">
 }lassName="space-y-6">
               <div className="space-y-6">
                 <h2 className="text-xl font-bold text-blue-400 mb-4">🎧 Audio Guide</h2>
