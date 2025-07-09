@@ -923,13 +923,94 @@ export default function ModulePage() {
           </div>
         </div>
 
+        <div className="grid lg:grid-cols-4 gap-8">
+          {/* Section Navigation */}
+          <div className="lg:col-span-1">
+            <div className="bg-white rounded-2xl shadow-lg p-6 sticky top-8">
+              <h2 className="text-lg font-bold text-gray-800 mb-6">Module Sections</h2>
+              <div className="space-y-3">
+                {sections.map((section) => {
+                  const status = getSectionStatus(section.key)
+                  return (
+                    <button
+                      key={section.key}
+                      onClick={() => setCurrentSection(section.key)}
+                      className={`w-full p-4 rounded-xl text-left transition-all duration-200 ${
+                        status === 'completed' 
+                          ? 'bg-green-100 border-2 border-green-300 text-green-800'
+                          : status === 'current'
+                          ? 'bg-purple-100 border-2 border-purple-400 text-purple-800'
+                          : 'bg-gray-100 border-2 border-gray-200 text-gray-600 hover:bg-gray-200'
+                      }`}
+                    >
+                      <div className="flex items-center space-x-3">
+                        <span className="text-xl">{section.icon}</span>
+                        <div>
+                          <h3 className="font-semibold text-sm">{section.title}</h3>
+                          <p className="text-xs opacity-75">
+                            {status === 'completed' ? 'Completed' : 
+                             status === 'current' ? 'Current' : 'Upcoming'}
+                          </p>
+                        </div>
+                        {status === 'completed' && (
+                          <span className="ml-auto text-green-600">✓</span>
+                        )}
+                      </div>
+                    </button>
+                  )
+                })}
+              </div>
+            </div>
+          </div>
+
+          {/* Section Content */}
+          <div className="lg:col-span-3">
+            <div className="bg-white rounded-2xl shadow-lg p-8">
+              <div className="flex items-center space-x-3 mb-6">
+                <span className="text-3xl">
+                  {sections.find(s => s.key === currentSection)?.icon}
+                </span>
+                <h1 className="text-3xl font-bold text-gray-800">
+                  {sections.find(s => s.key === currentSection)?.title}
+                </h1>
+              </div>
+
+              {renderSectionContent()}
+
+              {/* Navigation */}
+              <div className="flex justify-between mt-8 pt-6 border-t border-gray-200">
+                <button
+                  onClick={() => {
+                    const currentIndex = sections.findIndex(s => s.key === currentSection)
+                    if (currentIndex > 0) {
+                      setCurrentSection(sections[currentIndex - 1].key)
+                    }
+                  }}
+                  disabled={sections.findIndex(s => s.key === currentSection) === 0}
+                  className="px-6 py-3 bg-gray-200 text-gray-700 rounded-xl font-semibold hover:bg-gray-300 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  ← Previous
+                </button>
+                
+                <button
+                  onClick={() => {
+                    markSectionComplete(currentSection)
+                    const currentIndex = sections.findIndex(s => s.key === currentSection)
+                    if (currentIndex < sections.length - 1) {
+                      setCurrentSection(sections[currentIndex + 1].key)
+                    }
+                  }}
+                  className="px-6 py-3 bg-purple-600 text-white rounded-xl font-semibold hover:bg-purple-700 transition-all duration-200"
+                >
+                  {sections.findIndex(s => s.key === currentSection) === sections.length - 1 ? 'Complete Module' : 'Next →'}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <BackgroundElements />
     </div>
-  )
-}
-        )
-    }
-  }
-}
-  )
+  );
 }
