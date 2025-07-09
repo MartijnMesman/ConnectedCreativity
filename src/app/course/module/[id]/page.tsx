@@ -929,3 +929,7 @@ export default function ModulePage() {
     </div>
   )
 }
+        )
+    }
+  }
+}
