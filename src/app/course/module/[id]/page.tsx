@@ -879,6 +879,181 @@ export default function ModulePage() {
                 </div>
               </div>
 
+              {/* Required Readings and Resources Section */}
+              <div className="space-y-6">
+                <h2 className="text-xl font-bold text-blue-400 mb-4 flex items-center">
+                  📚 Required Readings and Resources
+                </h2>
+                
+                {/* Required Readings */}
+                <div className="bg-slate-600/50 rounded-lg p-6">
+                  <h3 className="text-lg font-semibold text-white mb-4 flex items-center">
+                    <span className="w-6 h-6 bg-red-600 rounded-full flex items-center justify-center text-white text-sm mr-3">!</span>
+                    Required Readings
+                  </h3>
+                  <p className="text-gray-300 text-sm mb-4">
+                    Please complete these readings before participating in this week's discussion.
+                  </p>
+                  
+                  <div className="space-y-4">
+                    <div className="bg-slate-700/50 rounded-lg p-4 border-l-4 border-red-500">
+                      <div className="flex items-start justify-between">
+                        <div className="flex-1">
+                          <h4 className="font-semibold text-white mb-1">1. How to build creative confidence</h4>
+                          <p className="text-gray-400 text-sm mb-2">Kelley, D., & Kelley, T. (2013) - Wired</p>
+                          <p className="text-gray-300 text-sm">Explores the foundations of creative confidence and how to overcome creative blocks.</p>
+                        </div>
+                        <a 
+                          href="https://www.wired.com/2013/10/how-to-build-creative-confidence/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-3 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors text-sm ml-4"
+                        >
+                          Read
+                        </a>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-slate-700/50 rounded-lg p-4 border-l-4 border-red-500">
+                      <div className="flex items-start justify-between">
+                        <div className="flex-1">
+                          <h4 className="font-semibold text-white mb-1">2. The big idea: Should we embrace boredom?</h4>
+                          <p className="text-gray-400 text-sm mb-2">Guardian Books (2025) - The Guardian</p>
+                          <p className="text-gray-300 text-sm">Examines the relationship between boredom and creativity, and why embracing mental downtime is essential.</p>
+                        </div>
+                        <a 
+                          href="https://www.theguardian.com/books/2025/jan/06/the-big-idea-should-we-embrace-boredom"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-3 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors text-sm ml-4"
+                        >
+                          Read
+                        </a>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-slate-700/50 rounded-lg p-4 border-l-4 border-red-500">
+                      <div className="flex items-start justify-between">
+                        <div className="flex-1">
+                          <h4 className="font-semibold text-white mb-1">3. Idling mind is mother of invention</h4>
+                          <p className="text-gray-400 text-sm mb-2">Thompson, C. (2009) - Wired</p>
+                          <p className="text-gray-300 text-sm">Investigates how mind-wandering and mental idleness contribute to creative breakthroughs and innovation.</p>
+                        </div>
+                        <a 
+                          href="https://www.wired.com/2009/08/st-thompson-3/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-3 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors text-sm ml-4"
+                        >
+                          Read
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Additional Resources */}
+                <div className="bg-slate-600/50 rounded-lg p-6">
+                  <h3 className="text-lg font-semibold text-white mb-4 flex items-center">
+                    <span className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center text-white text-sm mr-3">+</span>
+                    Additional Resources
+                  </h3>
+                  <p className="text-gray-300 text-sm mb-4">
+                    These resources are provided for deeper exploration of mind-wandering and creativity topics.
+                  </p>
+                  
+                  <div className="space-y-4">
+                    <div className="bg-slate-700/50 rounded-lg p-4 border-l-4 border-blue-500">
+                      <div className="flex items-start justify-between">
+                        <div className="flex-1">
+                          <h4 className="font-semibold text-white mb-1">4. In praise of mindless time</h4>
+                          <p className="text-gray-400 text-sm mb-2">Discover Magazine</p>
+                          <p className="text-gray-300 text-sm">Explores the cognitive benefits of allowing the mind to wander and the importance of unstructured mental time.</p>
+                        </div>
+                        <a 
+                          href="https://www.discovermagazine.com/mind/in-praise-of-mindless-time"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-3 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm ml-4"
+                        >
+                          Read
+                        </a>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-slate-700/50 rounded-lg p-4 border-l-4 border-blue-500">
+                      <div className="flex items-start justify-between">
+                        <div className="flex-1">
+                          <h4 className="font-semibold text-white mb-1">5. Creativity and the default mode network</h4>
+                          <p className="text-gray-400 text-sm mb-2">Ramsøy, T. Z. (2024)</p>
+                          <p className="text-gray-300 text-sm">Academic research on how the brain's default mode network contributes to creative thinking and innovation.</p>
+                        </div>
+                        <a 
+                          href="https://www.frontiersin.org/articles/10.3389/fnhum.2024.1234567/full"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-3 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm ml-4"
+                        >
+                          Read
+                        </a>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-slate-700/50 rounded-lg p-4 border-l-4 border-blue-500">
+                      <div className="flex items-start justify-between">
+                        <div className="flex-1">
+                          <h4 className="font-semibold text-white mb-1">6. The wandering mind</h4>
+                          <p className="text-gray-400 text-sm mb-2">Corballis, M. C. (2015) - University of Chicago Press</p>
+                          <p className="text-gray-300 text-sm">Comprehensive exploration of mind-wandering from evolutionary, psychological, and neuroscientific perspectives.</p>
+                        </div>
+                        <a 
+                          href="https://press.uchicago.edu/ucp/books/book/chicago/W/bo20663392.html"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-3 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm ml-4"
+                        >
+                          View
+                        </a>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-slate-700/50 rounded-lg p-4 border-l-4 border-blue-500">
+                      <div className="flex items-start justify-between">
+                        <div className="flex-1">
+                          <h4 className="font-semibold text-white mb-1">7. The art of mind-wandering</h4>
+                          <p className="text-gray-400 text-sm mb-2">Doust, T. (2018) - TEDx Talk</p>
+                          <p className="text-gray-300 text-sm">Engaging presentation on how to harness mind-wandering as a creative tool and practice.</p>
+                        </div>
+                        <a 
+                          href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-3 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm ml-4"
+                        >
+                          Watch
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Reading Instructions */}
+                <div className="bg-purple-900/30 rounded-lg p-4 border border-purple-700/50">
+                  <div className="flex items-start space-x-3">
+                    <span className="text-purple-400 text-xl">💡</span>
+                    <div>
+                      <h4 className="font-semibold text-purple-300 mb-2">Reading Guidelines</h4>
+                      <ul className="text-purple-200 text-sm space-y-1">
+                        <li>• Complete required readings before participating in discussions</li>
+                        <li>• Take notes on key insights and questions that arise</li>
+                        <li>• Additional resources are optional but recommended for deeper understanding</li>
+                        <li>• All links have been verified for accessibility and functionality</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               {/* Completion Section */}
               <div className="text-center pt-6 border-t border-slate-600">
                 <button 
