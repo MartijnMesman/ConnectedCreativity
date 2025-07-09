@@ -15,6 +15,7 @@ interface ModuleContent {
     anchoring: {
       title: string
       content: string
+      checklist?: string[]
       media?: {
         type: 'video' | 'audio'
         url: string
